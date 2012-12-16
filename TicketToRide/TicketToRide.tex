@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Ticket to Ride Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom} 
+	\item Give each player their own set of train pieces
+	\item Place the score trackers on the correct corner of the board
+	\item Shuffle the route deck
+		\begin{enumerateCustom}
+			\item Give each player 3
+			\item Players must keep \emph{at least} 2
+			\item These are kept secret to the player
+			\item Set deck to side of board
+		\end{enumerateCustom}
+	\item Shuffle the train deck
+		\begin{enumerateCustom}
+			\item Give each player 4
+			\item Place 5 face up cards and deck next to board
+		\end{enumerateCustom}
+	\item Set out \textbf{Longest Path Bonus} card next to board
+\end{enumerateCustom}
+
+\section*{Goal of the Game}
+The player with the most points at the end of the game wins. Players get points by:
+\begin{itemizeCustom}
+	\item Claiming a route between two adjacent cities on the map
+	\item Completing a \emph{continuous} path between the cities on one of the destination tickets
+	\item Having the longest continuous path at the end of the game
+\end{itemizeCustom}
+
+\section*{Player Turn}
+Perform 1 of the following:
+\begin{itemizeCustom}
+	\item Draw 2 train cards
+		\begin{itemizeCustom}
+			\item Cards can be drawn from face-up options, the \textbf{train deck}, or a combination of both
+			\item Only 1 card can be drawn if a face-up locomotive is taken
+			\item Second draw can never be a face-up locomotive 
+			\item If face up card is drawn first, replenish from deck \emph{before} drawing a second card from the train deck or available face up cards
+		\end{itemizeCustom}
+	\item Draw new route cards
+		\begin{itemizeCustom}
+			\item Give player 3 cards from top of \textbf{destination deck}
+			\item The player must keep \emph{at least} 1
+		\end{itemizeCustom}
+	\item Claim a route
+		\begin{itemizeCustom}
+			\item Return number of \emph{matching} train cards from hand
+			\item Locomotives count as wild cards and can be any color
+			\item Returned train cards must match color of route
+			\item Gray routes require any colored set of train cards
+			\item Place player's trains on each space of route
+			\item Double routes only count as single routes in 2 and 3 player games
+			\item Give player points depending on route length. Check board for values
+		\end{itemizeCustom}
+\end{itemizeCustom}
+
+\section*{End Game}
+The game ends when a player has 2 or less plastic trains left. Everyone, including the player, gets one final turn.
+
+Then the players calculate their score as follows:
+\begin{enumerateCustom}
+	\item Players should already have accumulated their scores for claiming routes on the score tracker
+	\item Add each \textbf{Destination ticket} value if completed, subtract if not
+	\item The player with the longest continuous path of trains gets 10 bonus points
+	\item If two players tied, use number of completed destination tickets, otherwise use \textbf{Longest Continuous Path}, else fist fight
+\end{enumerateCustom}
+
+\end{multicols*}
+\end{mdframed}
+\end{document}
