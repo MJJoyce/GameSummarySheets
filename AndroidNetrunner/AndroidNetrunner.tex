@@ -41,7 +41,8 @@
 % Custom frame style for mdframed
 % The negative margin is needed to fix a weird spacing that I couldn't figure out
 \mdfdefinestyle{customFrame}{%
-    outerlinewidth = 0.4pt,
+	everyline=true,%
+    outerlinewidth = 0.4pt,%
     innertopmargin = -0.3cm}
 
 % Reduce whitespace in the enumerate list environment
@@ -151,18 +152,6 @@ Runner: Installing Cards
 \end{itemizeCustom}
 
 Runner: Runs
-%\begin{itemizeCustom}
-	%\item Primary interation between Corporation's \textbf{Ice} and Runner's \textbf{Icebreakers}. Icebreaker break ice subroutines if level is greater/equal to ice's level.
-	%\item \textbf{Initiation phase:} Runner declares target server. Receives 1 \textbf{credit} for each \textbf{bad publicity} on Corporation. If ice protecting the server, proceed to \textbf{Confrontation phase}, otherwise go to \textbf{Access phase}.
-	%\item \textbf{Confrontaton phase:} Runner approaches ice starting from the outermost. When approached any piece of ice except the first of the run, the Runner may \textbf{Jack Out} and end the run. For each piece of ice, if the ice is rezzed then the runner encounters it. Otherwise, if the Corporation rezzes the card, the Runner enounters it, otherwise the Runner passes the ice. For an encountered piece of ice, the Runner has the opportunity to break subroutines on the ice in any order. Any unbroken subroutines then trigger and the ice is passed, assuming the run wasn't ended by a subroutine. If all the ice protecting server are passed, proceed to \textbf{Access phase}.
-	%\item \textbf{Access phase:} The Access phase is different depending on the server run against. Cards can be trashed by paying the trash cost (trash can icon) on the card.
-	%\begin{itemizeCustom}
-		%\item \textbf{R\&D:} Access top card and any upgrades in root. Cards aren't shown to Corporation unless they are scored, trashed, or forced by card text.
-		%\item \textbf{HQ:} Access one random card and any upgrades in root. 
-		%\item \textbf{Archives:} Access all cards in \textbf{Archives} and any upgrades in root. All cards are turned faceup and order does not need to be maintained. All \textbf{agendas} are stolen, but cannot trash any cards already in the \textbf{Archives}.
-		%\item \textbf{Remote Server:} Access all cards in server.
-	%\end{itemizeCustom}
-%\end{itemizeCustom}
 \\PT - Paid abilities can be triggered. NIR - Non-ice cards can be rezzed.\\
 Anything on same line can be resolved in order of choice.
 \begin{enumerateCustom}
