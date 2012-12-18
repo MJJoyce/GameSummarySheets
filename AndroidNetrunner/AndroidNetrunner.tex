@@ -130,21 +130,34 @@ The Runner player can perform any of these actions any number of times, assuming
 \section*{Action Explanations}
 Corporation: Installing Cards
 \begin{itemizeCustom}
-\item The corporation may spend a \textbf{click} to install a single \textbf{agenda}, \textbf{asset}, \textbf{upgrade}, or piece of \textbf{ice}. 
-\item \textbf{Assets} and \textbf{upgrades} are played unrezzed. They can be rezzed at almost any time by the Corporation (see timing guide).
-\item When installing a card in a server, Corp can first \textbf{trash} cards already in that server. The trashed cards go to the \textbf{Archives} faceup if rezzed, facedown if unrezzed.
-\item A remote server can be created by playing an \textbf{agenda}, \textbf{asset}, \textbf{upgrade}, or \textbf{ice}. If \textbf{ice} is used to create the server, it is considered \textbf{empty}. This can still be run against.
-\item \textbf{Agendas/Assets:} Can only be installed in remote server. After installed, can be advanced/eventually scored. Only one \textbf{agenda} or \textbf{asset} per remote server. Can trash existing card in server to install a new one as part of the \emph{install} action. \textbf{Upgrades} don't have to be trashed!
-\item \textbf{Upgrades:} Can be insetalled in any server. Installed in server \textbf{root} when put into central server, otherwise put with agenda/asset. No limit to number that can be installed in a server. Only one card with \textbf{region} subtype installed per \emph{server}.
-\item \textbf{Ice:} Installed in front of any server (sideways) to protect it. Must be installed in the outermost position in front and install cost must be payed equal to number of pieces of \textbf{ice} already existing in that server. Already installed \textbf{ice} may be trashed before installing new \textbf{ice} to reduce install cost.
-\end{itemizeCustom}
-Corporation: Advancing a Card
-\begin{itemizeCustom}
-\item One advancement token is placed on an installed card. \textbf{Agendas} can always be advanced while other cards can only be advanced if their text allows it. 
-\item There is no limit to how many times a card can be advanced. 
-\item When an \textbf{agenda} has been advanced to its advancement requirement, it can be scored by the Corporation. See timing diagram for specifics of when. Scoring does \emph{not} cost a \textbf{click}. Scoring is \emph{not} mandatory.
+	\item The corporation may spend a \textbf{click} to install a single \textbf{agenda}, \textbf{asset}, \textbf{upgrade}, or piece of \textbf{ice}. 
+	\item \textbf{Assets} and \textbf{upgrades} are played unrezzed. They can be rezzed at almost any time by the Corporation (see timing guide).
+	\item When installing a card in a server, Corp can first \textbf{trash} cards already in that server. The trashed cards go to the \textbf{Archives} faceup if rezzed, facedown if unrezzed.
+	\item A remote server can be created by playing an \textbf{agenda}, \textbf{asset}, \textbf{upgrade}, or \textbf{ice}. If \textbf{ice} is used to create the server, it is considered \textbf{empty}. This can still be run against.
+	\item \textbf{Agendas/Assets:} Can only be installed in remote server. After installed, can be advanced/eventually scored. Only one \textbf{agenda} or \textbf{asset} per remote server. Can trash existing card in server to install a new one as part of the \emph{install} action. \textbf{Upgrades} don't have to be trashed!
+	\item \textbf{Upgrades:} Can be insetalled in any server. Installed in server \textbf{root} when put into central server, otherwise put with agenda/asset. No limit to number that can be installed in a server. Only one card with \textbf{region} subtype installed per \emph{server}.
+	\item \textbf{Ice:} Installed in front of any server (sideways) to protect it. Must be installed in the outermost position in front and install cost must be payed equal to number of pieces of \textbf{ice} already existing in that server. Already installed \textbf{ice} may be trashed before installing new \textbf{ice} to reduce install cost.
 \end{itemizeCustom}
 
+Corporation: Advancing a Card
+\begin{itemizeCustom}
+	\item One advancement token is placed on an installed card. \textbf{Agendas} can always be advanced while other cards can only be advanced if their text allows it. 
+	\item There is no limit to how many times a card can be advanced. 
+	\item When an \textbf{agenda} has been advanced to its advancement requirement, it can be scored by the Corporation. See timing diagram for specifics of when. Scoring does \emph{not} cost a \textbf{click}. Scoring is \emph{not} mandatory.
+\end{itemizeCustom}
+
+Both: Playing Events(Runner)/Operations(Corporation)
+\begin{itemize}
+	\item Pay a number of credits equal to the \textbf{pay cost} and resolve the cards effects. Then trash the card faceup into the respective discard pile.
+\end{itemize}
+
+Runner: Installing Cards
+\begin{itemize}
+	\item \textbf{Programs:} Pay install cost and place it faceup into program row of \textbf{rig}. Programs have a \textbf{memory cost}. Runner starts with 4 \textbf{memory units (MUs)}. If installed programs memory cost is ever greater than the runners memory units, programs must be trashed.
+	\item \textbf{Resources:} Pay install cost and place faceup into resource row of \textbf{rig}. No limit to number of installed resources.
+	\item \textbf{Hardware:} Pay install cose and place faceup into hardware row of \textbf{rig}. No limit to number of installed hardware. Runner can only have one hardware with \textbf{console} subtype installed.
+	% TODO: FAQ says that existing console can't be trashed I believe. Check this.
+\end{itemize}
 \end{multicols*}
 %\end{mdframed}
 \end{document}
