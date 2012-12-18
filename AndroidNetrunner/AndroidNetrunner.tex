@@ -151,18 +151,45 @@ Runner: Installing Cards
 \end{itemizeCustom}
 
 Runner: Runs
-\begin{itemizeCustom}
-	\item Primary interation is between Corporation's \textbf{Ice} and Runner's \textbf{Icebreakers}. Icebreakers can break the subroutines of ice so long as the two subtypes match and the icebreaker's level is greater than or equal to the ice's level. See run flow chart for more thorough timing explanations.
-	\item \textbf{Initiation phase:} Runner declares server that the run is against. Receives 1 \textbf{credit} for each point of \textbf{bad publicity} on the Corporation. If there are ice protracting the server, proceed to \textbf{Confrontation phase}, otherwise go to \textbf{Access phase}.
-	\item \textbf{Confrontaton phase:} Runner approaches ice starting from the outermost. When approached any piece of ice except the first of the run, the Runner may \textbf{Jack Out} and end the run. For each piece of ice, if the ice is rezzed then the runner encounters it. Otherwise, if the Corporation rezzes the card, the Runner enounters it, otherwise the Runner passes the ice. For an encountered piece of ice, the Runner has the opportunity to break subroutines on the ice in any order. Any unbroken subroutines then trigger and the ice is passed, assuming the run wasn't ended by a subroutine. If all the ice protecting server are passed, proceed to \textbf{Access phase}.
-	\item \textbf{Access phase:} The Access phase is different depending on the server run against. Cards can be trashed by paying the trash cost (trash can icon) on the card.
-	\begin{itemizeCustom}
-		\item \textbf{R\&D:} Access top card and any upgrades in root. Cards aren't show to Corporation unless they are scored, trashed, or forced to reveal by card text.
-		\item \textbf{HQ:} Access one random card and any upgrades in root. 
-		\item \textbf{Archives:} Access all cards in \textbf{Archives} and any upgrades in root. All cards are turned faceup and order does not need to be maintained. All \textbf{agendas} are stolen, but cannot trash any cards already in the \textbf{Archives}.
-		\item \textbf{Remote Server:} Access all cards in server.
-	\end{itemizeCustom}
-\end{itemizeCustom}
+%\begin{itemizeCustom}
+	%\item Primary interation between Corporation's \textbf{Ice} and Runner's \textbf{Icebreakers}. Icebreaker break ice subroutines if level is greater/equal to ice's level.
+	%\item \textbf{Initiation phase:} Runner declares target server. Receives 1 \textbf{credit} for each \textbf{bad publicity} on Corporation. If ice protecting the server, proceed to \textbf{Confrontation phase}, otherwise go to \textbf{Access phase}.
+	%\item \textbf{Confrontaton phase:} Runner approaches ice starting from the outermost. When approached any piece of ice except the first of the run, the Runner may \textbf{Jack Out} and end the run. For each piece of ice, if the ice is rezzed then the runner encounters it. Otherwise, if the Corporation rezzes the card, the Runner enounters it, otherwise the Runner passes the ice. For an encountered piece of ice, the Runner has the opportunity to break subroutines on the ice in any order. Any unbroken subroutines then trigger and the ice is passed, assuming the run wasn't ended by a subroutine. If all the ice protecting server are passed, proceed to \textbf{Access phase}.
+	%\item \textbf{Access phase:} The Access phase is different depending on the server run against. Cards can be trashed by paying the trash cost (trash can icon) on the card.
+	%\begin{itemizeCustom}
+		%\item \textbf{R\&D:} Access top card and any upgrades in root. Cards aren't shown to Corporation unless they are scored, trashed, or forced by card text.
+		%\item \textbf{HQ:} Access one random card and any upgrades in root. 
+		%\item \textbf{Archives:} Access all cards in \textbf{Archives} and any upgrades in root. All cards are turned faceup and order does not need to be maintained. All \textbf{agendas} are stolen, but cannot trash any cards already in the \textbf{Archives}.
+		%\item \textbf{Remote Server:} Access all cards in server.
+	%\end{itemizeCustom}
+%\end{itemizeCustom}
+\\PT - Paid abilities can be triggered. NIR - Non-ice cards can be rezzed.\\
+Anything on same line can be resolved in order of choice.
+\begin{enumerateCustom}
+	\item Declare target server. Get credits for \textbf{bad publicity}. If ice, goto 2, else goto 4
+	\item Runner \textbf{Approaches} outermost unapproached ice.
+		\begin{enumerateCustom}
+			\item PT
+			\item Continue run? If \textbf{Jacks Out} (not first ice of run), goto 6
+			\item Approached ice can be rezzed, PT, NIR
+			\item If approached ice is rezzed, goto 3. If no more ice, goto 4. If more ice, goto 2.
+		\end{enumerateCustom}
+	\item Runner \textbf{Encounters} ice (``When encountered'' met)
+		\begin{enumerateCustom}
+			\item Icebreakers interact with ice, PT
+			\item Resolve all unbroken subroutines. If run ends, goto 6. Else, if more ice, goto 2, else goto 4.
+		\end{enumerateCustom}
+	\item Runner \textbf{Approaches} server
+		\begin{enumerateCustom}
+			\item PT
+			\item Continue run? If \textbf{Jacks Out} goto 6
+			\item PT, NIR
+			\item Run is successful (``When successful'' met)
+			\item Access cards, goto 5. If \textbf{R\&D}, top card + upgrades. If \textbf{HQ}, one random card + upgrades. If \textbf{Archives}, all cards. If \textbf{remote server}, all cards in server but ice.
+		\end{enumerateCustom}
+	\item Run ends
+	\item Run ends and is \textbf{Unsuccessful} (``When unsuccessful'' met)
+\end{enumerateCustom}
 
 \section*{Additional Rules}
 Traces:
