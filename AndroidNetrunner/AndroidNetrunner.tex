@@ -60,13 +60,55 @@
   \setlength{\parsep}{0pt}}
 {\end{itemize}}
 
+% Prevent paragraph indent
+\setlength{\parindent}{0pt}
+
 \begin{document}
 \begin{mdframed}[style = customFrame]
 \begin{multicols*}{2}
 
 \section*{Setup}
+\begin{enumerateCustom}
+	\item Pick sides, grab/create decks, and shuffle
+	\item Set tokens out in convenient location near both players
+	\item 5 \textbf{credits} to each player
+	\item Draw 5 cards for starting hand. Players can \textbf{mulligan} by reshuffling their hand into deck and redraw-ing. Must keep second hand.
+\end{enumerateCustom}
+
 \section*{Goal of the Game}
+\begin{itemizeCustom}
+	\item Corporation wins if:
+		\begin{itemizeCustom}
+			\item Collect 7 \textbf{agenda} points from \textbf{Agenda} cards.
+			\item The runner has hand size of 0 at end of runner's turn.
+		\end{itemizeCustom}
+	\item Runner wins if:
+		\begin{itemizeCustom}
+			\item Collect 7 \textbf{agenda} points from \textbf{Agenda} cards.
+			\item Corporation has no card to draw from their \textbf{R\&D}.
+		\end{itemizeCustom}
+\end{itemizeCustom}
+
 \section*{Player Turn}
+The Corporation player begins the game and their turn has three phases.
+\begin{enumerateCustom}
+	\item \textbf{Draw Phase:} Draw a card from \textbf{R\&D}
+	\item \textbf{Action Phase:} Perform 3 actions by spending \textbf{clicks}
+	\item \textbf{Discard Phase:} Discard down to maximum hand size, if necessary
+\end{enumerateCustom}
+
+The Corporation player can perform any of these actions any number of times, assuming they can be paid for. Note, actions are taxen by spending \textbf{clicks}
+\begin{enumerateCustom}
+	\item Draw one card from \textbf{R\&D}
+	\item Gain one \textbf{credit}
+	\item Install an \textbf{agenda}, \textbf{asset}, \textbf{upgrade}, or piece of \textbf{ice}
+	\item Play an \textbf{operation}
+	\item Pay one \textbf{credit}: Advance a card
+	\item Pay two \textbf{credits}: Trash a resource in Runner's rig if Runner is \textbf{TAGGED}
+	\item Pay three \textbf{clicks}: Purge virus counters.
+	\item Trigger a \textbf{click} ability on a card (cost varies).
+\end{enumerateCustom}
+
 \section*{End Game}
 
 \end{multicols*}
