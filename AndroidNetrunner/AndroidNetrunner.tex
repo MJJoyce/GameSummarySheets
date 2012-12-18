@@ -147,17 +147,31 @@ Corporation: Advancing a Card
 \end{itemizeCustom}
 
 Both: Playing Events(Runner)/Operations(Corporation)
-\begin{itemize}
+\begin{itemizeCustom}
 	\item Pay a number of credits equal to the \textbf{pay cost} and resolve the cards effects. Then trash the card faceup into the respective discard pile.
-\end{itemize}
+\end{itemizeCustom}
 
 Runner: Installing Cards
-\begin{itemize}
+\begin{itemizeCustom}
 	\item \textbf{Programs:} Pay install cost and place it faceup into program row of \textbf{rig}. Programs have a \textbf{memory cost}. Runner starts with 4 \textbf{memory units (MUs)}. If installed programs memory cost is ever greater than the runners memory units, programs must be trashed.
 	\item \textbf{Resources:} Pay install cost and place faceup into resource row of \textbf{rig}. No limit to number of installed resources.
 	\item \textbf{Hardware:} Pay install cose and place faceup into hardware row of \textbf{rig}. No limit to number of installed hardware. Runner can only have one hardware with \textbf{console} subtype installed.
 	% TODO: FAQ says that existing console can't be trashed I believe. Check this.
-\end{itemize}
+\end{itemizeCustom}
+
+Runner: Runs
+\begin{itemizeCustom}
+	\item Primary interation is between Corporation's \textbf{Ice} and Runner's \textbf{Icebreakers}. Icebreakers can break the subroutines of ice so long as the two subtypes match and the icebreaker's level is greater than or equal to the ice's level. See run flow chart for more thorough timing explanations.
+	\item \textbf{Initiation phase:} Runner declares server that the run is against. Receives 1 \textbf{credit} for each point of \textbf{bad publicity} on the Corporation. If there are ice protracting the server, proceed to \textbf{Confrontation phase}, otherwise go to \textbf{Access phase}.
+	\item \textbf{Confrontaton phase:} Runner approaches ice starting from the outermost. When approached any piece of ice except the first of the run, the Runner may \textbf{Jack Out} and end the run. For each piece of ice, if the ice is rezzed then the runner encounters it. Otherwise, if the Corporation rezzes the card, the Runner enounters it, otherwise the Runner passes the ice. For an encountered piece of ice, the Runner has the opportunity to break subroutines on the ice in any order. Any unbroken subroutines then trigger and the ice is passed, assuming the run wasn't ended by a subroutine. If all the ice protecting server are passed, proceed to \textbf{Access phase}.
+	\item \textbf{Access phase:} The Access phase is different depending on the server run against. Cards can be trashed by paying the trash cost (trash can icon) on the card.
+	\begin{itemizeCustom}
+		\item \textbf{R\&D:} Access top card and any upgrades in root. Cards aren't show to Corporation unless they are scored, trashed, or forced to reveal by card text.
+		\item \textbf{HQ:} Access one random card and any upgrades in root. 
+		\item \textbf{Archives:} Access all cards in \textbf{Archives} and any upgrades in root. All cards are turned faceup and order does not need to be maintained. All \textbf{agendas} are stolen, but cannot trash any cards already in the \textbf{Archives}.
+		\item \textbf{Remote Server:} Access all cards in server.
+	\end{itemizeCustom}
+\end{itemizeCustom}
 \end{multicols*}
 %\end{mdframed}
 \end{document}
