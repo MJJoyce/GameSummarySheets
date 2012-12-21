@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{A Game of Thrones: The Board Game Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+	\item Shuffle Wilding Deck (Mammoth Back) and place at top of board. Put \textbf{Wildling Threat} token on ``2''.
+	\item Divide \textbf{Westeros} cards (Roman Numeral Back) into 3 decks. Shuffle and place near board.
+	\item Find \textbf{Neutral Force} tokens based on player range. Place on board.
+	% TODO Determine which houses based on players
+	\item Determine player decks based on player numbers and distribute pieces.
+	% Todo Determine which houses based on players
+	\item Place \textbf{Game Round} marker.
+	\item place \textbf{influence}, \textbf{victory}, and \textbf{Supply} markers on board. check player boards for positions of tokens.
+	\item Place starting units and \textbf{Garrison} tokens.
+	\item Place all \textbf{Power} tokens in a central pile.
+\end{enumerateCustom}
+
+\section*{Goal of the Game}
+\section*{Player Turn}
+\section*{End Game}
+
+\end{multicols*}
+\end{mdframed}
+\end{document}
