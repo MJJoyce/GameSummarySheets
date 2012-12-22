@@ -8,7 +8,9 @@
 % Set the spacing on all sides of the title to 0
 \usepackage[compact]{titlesec}
 \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.5em}{}
 \titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
 
 % Reduce spacing around list items
 \usepackage{enumitem}
@@ -158,6 +160,17 @@ Remember, a retreating army cannot retreat to an area with an enemy Power token.
 When a player removes all units from an area through a March Order, that area no longer provides benefits to the player. If the player wants to maintain control, he can leave a power token in the region to maintain control. The power token is only removed once an enemy takes control of its area. A lone power token will not cause combat nor does it aid the defender. If a player doens't have a power token, he can't establish control.
 \subsection*{Controlling Home Areas}
 Printed House shield of a home area functions like a permanent Power token. Players can control enemy home areas by keeping friendly units there or by establishing control in the area. Place power token directly over printed enemy house shield when establshing control. When the area is vacated, control reverts back to the original house.
+
+\section*{Ports}
+\begin{itemizeCustom}
+	\item Ports must be assigned an order, supply limits are still in effect, and have a limit cap of 3 ships per port.
+	\item A player may muster ships into a port even if the adjacent sea area is controlled by enemy units.
+	\item Ports can't be attacked by enemy ships. Claim area with units to claim port.
+	\item Ship units in port may support adjacent sea but not adjacent land area. They also don't contribute defense strength to adjacent land area.
+	\item Ships in port may raid adjacent sea area. Adjacent sea area may raid port. Land units can't raid port.
+	\item Consolidate Power Order on port is thrown away if enemy units control adjacent sea area.
+	\item When ``Game of Thrones'' Westeros card is resolved, player gets additional power token if port's adjacent sea area is free of enemies. 
+\end{itemizeCustom}
 
 \end{multicols*}
 %\end{mdframed}
