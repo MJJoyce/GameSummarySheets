@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 
 % Set landscape mode and custom margins for page while including space for the footer
 \usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
@@ -141,6 +141,20 @@ The game ends after the current round when:
 \begin{itemizeCustom}
 	\item The tile supply has been exhausted a second time.
 	\item A player has placed all their resources into the city.
+\end{itemizeCustom}
+
+\section*{Scoring}
+Add up points as follows:
+\begin{itemizeCustom}
+	\item Any score tokens earned in the game.
+	\item Cards with an endgame bonus (Will have an '=' sign).
+	\item 2 points for each unused \emph{New Hand} token.
+	\item For each district in the city (district is area formed by two or more adjacent colors of same color):
+		\begin{itemizeCustom}
+			\item Player with highest number of resources in district gets points equal to total number of resources in district.
+			\item Player with second highest gets points equal to his number of resources.
+			\item If there's a tie, player with highest building wins. If still a tile, the number on the highest buildings is used to break the tie.
+		\end{itemizeCustom}
 \end{itemizeCustom}
 
 \end{multicols*}
