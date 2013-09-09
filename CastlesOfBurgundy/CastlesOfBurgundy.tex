@@ -10,6 +10,12 @@
 \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
 \titlespacing*{\section}{0pt}{*0}{0pt}
 
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+\titleformat{\subsubsection}{\normalfont\bfseries\em}{\thesection}{0.3em}{}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
 % Reduce spacing around list items
 \usepackage{enumitem}
 \setlist{nolistsep}
@@ -83,7 +89,8 @@
 \end{enumerateCustom}
 \section*{Goal of the Game}
 \section*{Gameplay}
-The game plays out over 5 phases (A through E) each containing 5 rounds.
+The game plays out over 5 phases (A through E) each containing 5 rounds. Game flow:
+
 \subsection*{Setup for each Phase}
 \begin{itemizeCustom}
 	\item Remove all 6-sided tiles from board. Leave ship, mine, and castles as they are all the same.
@@ -122,6 +129,9 @@ Die value indicates which type of goods can be sold. Place all sold goods face d
 
 \subsubsection*{Take worker tiles}
 Use any die result to take 2 worker tiles.
+
+\section*{End of Phase}
+Players receive 1 Silverling for each mine in their estate. Resolve any yellow "Knowledge" tiles have an end of phase effect.
 
 \section*{End Game}
 
