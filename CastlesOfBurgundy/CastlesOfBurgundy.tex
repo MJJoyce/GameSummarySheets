@@ -61,7 +61,6 @@
 {\end{itemize}}
 
 \begin{document}
-\begin{mdframed}[style = customFrame]
 \begin{multicols*}{2}
 
 \section*{Setup}
@@ -98,8 +97,33 @@ The game plays out over 5 phases (A through E) each containing 5 rounds.
 	\item Roll the white die and place the current rounds good according to the result.
 	\item All players now take their turn starting with the first player.
 \end{itemizeCustom}
+
+\section*{Player's Turn}
+Carry out two actions, once per die. Worker tiles may be used to change the result of the dice. 1-6 or 6-1 wrapping is valid. Once per turn, you may purchase one tile from the black depot for 2 Silverlings.
+
+\subsection*{Actions}
+\subsubsection*{Take 6-sided tile}
+Die value indicates from which depot the tile is taken. Place into storage on bottom-left of player board. Discard a tile if no space is available.
+
+\subsubsection*{Add 6-sided tile to estate from storage}
+Die value indicates which empty space to place the tile. Tile must be placed adjacent to previously placed tile(s) and match the space's color. Then:
+
+\begin{itemizeCustom}
+	\item "Ship" (blue) - Add to your storage all goods from any one depot. Only three colors of goods may be stored. Leave behind any goods that you can't store. Move turn-order piece right on thet rack one space. If occupied, stack on top of the other pieces. If new first player, take the white die.
+	\item Knowledge (yellow) - Check the book.
+	\item Animal (light green) - Get victory points based on how many animals are on the tile. If expanding a pasture, pre-existing animals of the same type are scored also. Note, same pasture doesn't necessitate immediate adjacency within the same pasture. (Ex. pg. 6)
+	\item Castle (dark green) - Immediately take another action as if he had an extra die with any result.
+	\item Mine (grey) - At the end of each pahse, receive 1 Silverling for this mine.
+	\item Building (beige) - Immediately make a single use of that building's advantage (Ex. pg. 7). Note, no identical buildings in a city (connected beige region) are allowed.
+\end{itemizeCustom}
+
+\subsubsection*{Sell goods}
+Die value indicates which type of goods can be sold. Place all sold goods face down in the sold goods square. Receive 1 Silverling and number of tiles * number of players VP. Note, all the goods of the type must be sold. None can be kept in reserve.
+
+\subsubsection*{Take worker tiles}
+Use any die result to take 2 worker tiles.
+
 \section*{End Game}
 
 \end{multicols*}
-\end{mdframed}
 \end{document}
