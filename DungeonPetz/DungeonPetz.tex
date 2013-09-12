@@ -156,6 +156,24 @@ The game is played out over 4 or 5 rounds consisting of 6 Phases.
 	\item Assign Need Cards to Pets - Assign each pet one card for each revealed color bar. They must match. Place each pets cards face down near it. A Potion may act as a Need Card of any color.
 \end{enumerateCustom}
 
+\subsection*{Phase 4 - Showing Off}
+\begin{enumerateCustom}
+	\item Evaluating Needs - Flip over all Need cards and resolve their effects.
+	\begin{itemizeCustom}
+		\item Hunger - Spend one food token per hunger card (of Pet's type) or assign one suffering token. If number of suffering tokens $>$ Pet's level it dies.
+		\item Poop - Add 1 Manure token for each Poop Need.
+		\item Play - For each Play Need, employ 1 Imp to entertain or assign one suffering token. Only available Imp on Burrow Board can be used. One Imp meets 1 Play need for each adjacent cage.
+		\item Anger - If number of Anger Needs $>$ Strength of Cage (Red number) it tries to escape. Try to catch it with Imps: Need 1 Imp from Burrow Board for each unmet Anger Need. Move them to hospital. Otherwise, it escapes.
+		\item Magic - If number of Magic Needs $>$ Antimagic of Cage (Purple number) it gets 1 mutation for each unmet Magic Need. If it has 2 mutations you lose the Pet.
+		\item Disease - If number of Disease Needs + number of Manure in Cage $>$ 2 then get 1 Suffering Token $+$ total $-$ 2. Note that Disease Needs are evaluated after Poop Needs!
+		\item Potion - If you played a potion to fulfil a need you must discard one card of the color that it replaced from your hand.
+	\end{itemizeCustom}
+	\item Exhibition - Exhibition tile tells you if Single-Pet or Full-Display Exhibition (top-left icon). Light frame images depict score increase. Dark frame depicts score decrease. Each symbol worth 1 (times any modifier on exhibit). Note, in Full-Display Manure in empty cages still counts.
+	\item Move minions based on exhibition score. If points $\le$ 2 leave minion on 0 space. Players get Reputation points according to drawing on the board. If minion is on 0 you don't get any points. If players tied, each gets reputation for that place minus the number of players that tied with them.
+	\item Remove the Exhibition tile from the board.
+	\item Losing a Pet - If you lost a pet previously, remove it from the game. It doesn't count in the exhibition. Any Manure tokens stay in the cage. Lost 1 reputation point for each 10 points you have.
+\end{enumerateCustom}
+
 \section*{End Game}
 
 \end{multicols*}
