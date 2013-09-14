@@ -6,6 +6,7 @@ Currently available:
 * Crows
 * Dungeon Petz
 * Game of Thrones: The Board Game
-* Ginkopolis
+* Ginkgopolis
+* Innovation
 * Lords of Waterdeep
 * Ticket to Ride
