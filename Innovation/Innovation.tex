@@ -74,7 +74,23 @@
 	\item Determine start player. Each player "melds" a card. The player who melds the card closest to the start of the alphabet goes first. First players turn (Or first 2 in 4 player game) consists of one action.
 \end{enumerateCustom}
 \section*{Goal of the Game}
-\section*{Player Turn}
+\section*{Game Structure}
+Perform two actions on your turn.
+\begin{itemizeCustom}
+	\item \textbf{Draw:} Draw a card from the supply pile matching the highest value among your top cards. If the pile you need is empty draw from the next higher pile. If your board is empty draw a 1.
+	\item \textbf{Meld:} Place a card from your hand on top of the pile of matching color. If no such pile, start a new one. If the pile is splayed continue it. 
+	\item \textbf{Achieve:} Claim an achievement if:
+		\begin{enumerateCustom}
+			\item Must have points equal to or great than 5 times the age of the achievement.
+			\item Must have a top card on your board of equal or high value.
+		\end{enumerateCustom}
+		Note, you don't spend points from your score pile and achievements may never be lost or stolen.
+	\item \textbf{Dogma:} Select one of the top cards on your board and execute each dogma effect in order. All dogma effects are \emph{mandatory} unless ``You may'' precedes them. Before taking the dogma action tally the matching icons. \emph{Don't recount after each effect on card!} There are two types:
+		\begin{enumerateCustom}
+			\item \textbf{I Demand} are offensive effects that opponents must perform if they have less featured icons than you. Go clockwise starting from you.
+			\item \textbf{Non-Demand} are performed by you and opponents with icons $\ge$ to you. Go clockwise order followed by you. If one or more opponents shares non-demand effects you get 1 free \textbf{Draw} action. Note, the game state must have changed for the effect to have been ``shared''. I.e., Shared effect tells you to \textbf{Meld} but opponent has no card to \textbf{Meld}. No \textbf{Draw} action occurs.
+		\end{enumerateCustom}
+\end{itemizeCustom}
 \section*{End Game}
 
 \end{multicols*}
