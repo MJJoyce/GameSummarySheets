@@ -10,6 +10,9 @@
 \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
 \titlespacing*{\section}{0pt}{*0}{0pt}
 
+\titleformat{\subsection}{\normalfont\bfseries\em}{\thesection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
 % Reduce spacing around list items
 \usepackage{enumitem}
 \setlist{nolistsep}
@@ -75,7 +78,7 @@
 	\item Shuffle and draw 6 cards from basic deck.
 \end{enumerateCustom}
 
-\section*{Village Randomization - Monsters}
+\subsection*{Village Randomization - Monsters}
 \begin{itemizeCustom}
 	\item Shuffle monster randomizers. Reveal cards until 1 group of levels 1 through 3 are found. Remove matching card sets.
 	\item Draw random Thunderstone Bearer card.
@@ -84,7 +87,7 @@
 	\item Fill empty ranks on dungeon board with monsters face up. This forms the Dungeon Hall.
 \end{itemizeCustom}
 
-\section*{Village Randomization - Village}
+\subsection*{Village Randomization - Village}
 \begin{itemizeCustom}
 	\item Pull $player count * 3$ each of the basic cards (Regular, Longspear, and Torch). Set out on board.
 	\item Shuffle hero randomizers and reveal 4. Remove card sets. Arrange hero cards in level order starting with 1.
