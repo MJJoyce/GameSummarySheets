@@ -10,3 +10,4 @@ Currently available:
 * Innovation
 * Lords of Waterdeep
 * Ticket to Ride
+* Yggdrasil
