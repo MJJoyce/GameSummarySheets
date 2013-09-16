@@ -9,5 +9,7 @@ Currently available:
 * Ginkgopolis
 * Innovation
 * Lords of Waterdeep
+* Takenoko
+* Thunderstone Advance
 * Ticket to Ride
 * Yggdrasil
