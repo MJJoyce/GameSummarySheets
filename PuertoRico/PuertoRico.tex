@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Puerto Rico Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+	\item Place out the game board and place all the buildings on their assigned spaces.
+	\item Place doubloons on the game board bank.
+	\item Give each player 1 player board and 1 less doubloon than there are players.
+	\item Pick a starting player and give them the \textbf{Governor card} and a blue \emph{indigo} tile. Give the other players:
+		\begin{itemizeCustom}
+			\item \textbf{3 Players:} 2nd: indigo / 3rd: corn
+			\item \textbf{4 Players:} 2nd: indigo / 3rd and 4th: corn
+			\item \textbf{5 Players:} 2nd and 3rd: indigo / 4th and 5th: corn
+		\end{itemizeCustom}
+	\item Set out victory point chips. 3/4/5 players : 75/100/All points
+	\item Set out all 8 query tiles face-up
+	\item Shuffle all remaining plantation tiles and place face-down in stacks
+	\item Place 1 more plantation tile than the number of players face-up
+	\item Place role cards based on number of players. 3 players: All cards but both prospectors / 4 players: All cards but one prospector / 5 players: All cards
+	\item Place cargo ships based on number of players. 3/4/5 players : 4-6/5-7/6-8 cargo spaces
+	\item Place out goods pieces and the trading house tile
+	\item Place colonist ship with <number of player> colonists on it
+	\item Place colonists out based on number of players. 3/4/5 players : 55/75/95 colonists
+\end{enumerateCustom}
+
+\section*{Goal of the Game}
+\section*{Player Turn}
+\section*{End Game}
+
+\end{multicols*}
+\end{mdframed}
+\end{document}
