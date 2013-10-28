@@ -74,7 +74,31 @@
 	\item Follow any Scenario setup instructions.
 \end{enumerateCustom}
 
-\section*{Player Turn}
+\section*{Round Sequence}
+The game is played out over a series of Rounds, each of which has 7 Phases.
+
+\subsection*{Phase 1: Resource}
+\begin{itemizeCustom}
+	\item Each player adds 1 resource token to each heroes' Resource Pool. A hero's resources can only be used to pay for cards from its Sphere of Influence.
+	\item Each player draws 1 card. If draw pile is empty, \emph{do not} draw.
+\end{itemizeCustom}
+
+\subsection*{Phase 2: Planning}
+\item In player order, play an Ally or Attachment cards. This is the \emph{only} phase when they can be played.
+
+\subsection*{Phase 3: Quest}
+Players now attempt to make progress on the current stage of their quest. Players may play event cards and take actions at the beginning and the end of each step
+\begin{enumerateCustom}
+	\item \textbf{Commit Characters:} Players commit heroes to the quest as a team in player order. Exhaust any heroes that are committed to the quest.
+	\item \textbf{Staging:}  Reveal one card per player from the Encounter deck. Reveal them one at a time and resolve any effects before drawing additional cards. Enemy and location cards are placed in the Staginng area. Treachery cards are resolved and discarded (unless otherwise indicated).
+	\item \textbf{Quest Resolution:} Compare combined Willpower of committed characters against combined Threat of all cards in Staging area.
+		\begin{itemizeCustom}
+			\item Willpower $>$ Threat: Add the difference as progress tokens to the current quest (Active Location card if present before quest).
+			\item Willpower $<$ Threat: Add the difference to each player's Threat Tracker.
+			\item Willpower $=$ Threat: Do nothing.
+		\end{itemizeCustom}
+\end{enumerateCustom}
+
 \section*{End Game}
 
 \end{multicols*}
