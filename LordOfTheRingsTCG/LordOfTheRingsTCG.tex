@@ -64,7 +64,6 @@
 {\end{itemize}}
 
 \begin{document}
-\begin{mdframed}[style = customFrame]
 \begin{multicols*}{2}
 
 \section*{Setup}
@@ -111,8 +110,28 @@ Players may travel as a group to a Location card in the Staging area. Move the l
 	\item In player order, compare the player's Threat level with each enemy in the Staging area. The enemy with the highest Engagement cost that is \emph{equal to or lower} than the player's Threat engages the player. Move it to in front of the player. Then the next player does the same. Do this until no enemy can engage a player.
 \end{itemizeCustom}
 
+\subsection*{Phase 6: Combat}
+Deal 1 face down Shadow card to each engaged enemy from the Encounter deck. Deal cards in player order and from highest to lowest enemy engagement cost. If the Engagement deck runs out, \emph{do not shuffle the discard pile}. That is only done during the Questing phase!
+
+\noindent
+\textbf{Resolve enemy attacks.} The player can resolve enemy attacks in the order of their choosing. 
+\begin{itemizeCustom}
+	\item Pick an enemy attack to resolve.
+	\item Next, declare a defender and exhaust it. Only one character can be declared a defender against each attacking enemy. A player may also choose to not defend an attack. 
+	\item Now, flip over the Shadow card and resolve its Shadow effect (It's the text below the black bar). 
+	\item Damage dealt to the defending character is the difference between the defending character's defense value and the attacking character's attack value.
+	\item If an attack is undefended, all its damage must be assigned to a single hero. The defense value has no affect in this case.
+\end{itemizeCustom}
+
+\noindent
+\textbf{Attacking enemies.} Each player may declare attacks against engaged enemies. 
+\begin{itemizeCustom}
+	\item Declare target of attack. Declare any number of attackers and exhaust them.
+	\item Add up total attack values.
+	\item Damage dealt is the difference between the total attack values and the defense of the target.
+\end{itemizeCustom}
+
 \section*{End Game}
 
 \end{multicols*}
-\end{mdframed}
 \end{document}
