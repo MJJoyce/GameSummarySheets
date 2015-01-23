@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.2em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Glory to Rome Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{itemizeCustom}
+    \item Give each player a Camp card and place "Rome Demands" in middle of table.
+    \item Shuffle Order cards and deal 4 to each player.
+    \item Give each player a Jack. Place remaining in middle of table.
+    \item Create stack of each Site card equal to number of players. Place remaining Sites upside-down to create Out of Town Sites.
+    \item Deal Order card face-up to each player. Determine Leader with alphabetical order of Card. Deal additional cards to break ties.
+    \item Place all face-up Order cards in middle of table. This is the starting Pool.
+\end{itemizeCustom} 
+
+\section*{Goal of the Game}
+Gain wealth and power (Victory Points) by completing structures for Emperor Nero and selling the building materials for personal gain.
+
+\section*{Game Play}
+\begin{itemizeCustom}
+    \item If Leader "thinks": Leader draws cards (see below) and turn ends.
+    \item If Leader "leads": Leader plays a Role card onto Camp to determine role for all players.
+        \begin{itemizeCustom}
+            \item Clockwise order each player may "think" or "follow" with an Order card with same role.
+            \item Leader may perform 1 action plus an additional action for each client of chosen role.
+            \item Each player who "followed" may perform one action plus an additional one for each client of chosen role. Players who "thought" still get to take actions for their clients.
+            \item Move all Order cards played as roles off Camps into the Pool.
+        \end{itemizeCustom}
+\end{itemizeCustom}
+
+\section*{Jacks and Petitioning}
+Jacks are wild cards. Leader may "lead" with a Jack as any role except \textbf{Thinker}. Jack can be used to "follow" any role as well. Return Jacks to center pile at end of turn. Jacks cannot be taken or played as materials or clients. You may \textbf{Petition} and play 3 matching role cards as a Jack to "lead" or "follow".
+
+\section*{Thinking}
+When taking the Thinker action choose one of the following:
+\begin{itemizeCustom}
+    \item Take one Jack (if available)
+    \item Draw Order cards from draw pile to reach maximum hand size (normally 5). May not take less!
+    \item If at/over max hand size, draw one additional Order card.
+\end{itemizeCustom}
+
+\section*{Patron - Hire Client}
+Take a card from the Pool and place under left edge of Camp showing only the role name. Limited by influence. New client does not perform action on turn it is hired.
+
+\section*{Laborer - Gather Material}
+Take a card from the Pool and tuck under bottom of Camp showing only the material name.
+
+\section*{Architect/Craftsman - Lay Foundation or Build Structure}
+\subsection*{Lay Foundation}
+Place Order card from hand in front of you. This is the foundation of a new structure. Place Site card of matching material underneath leaving stripes showing. You may NOT lay an Order as a foundation if there is no Site of matching material.
+
+\subsection*{Out of Town Sites}
+To use an Out of Town Site you must perform two consecutive Architect or Craftsman action on the same turn. This is not possible without a matching Client (generally).
+
+\subsection*{Adding Materials to a Building}
+A structure must have a Site and foundation before materials may be added. Take material from (Architect = Stockpile | Craftsman = Hand). Tuck beneath bottom card of structure leaving material showing.
+
+\subsection*{Completing a Structure}
+Structure is complete when materials equal to buildings value have been added. Tuck Site card under top edge of Camp, adding more influence. Materials stay with structure. Gain the benefits of the structures Function.
+
+\section*{Legionary - Demand Material}
+\begin{enumerateCustom}
+    \item Turn over Order card (not a Jack), place on top of hand, place cards on Rome Demands card.
+    \item If matching card(s) in Pool, you may take one and place in Stockpile.
+    \item If neighbors have matching card(s) in their hand, they must give you one. Place in Stockpile.
+    \item Retrieve hand from Rome Demands. You do NOT lose the revealed Order card.
+\end{enumerateCustom}
+
+\subsection*{Legionary Clients}
+If performing more than one Legionary action, reveal all materials at once. May ask for any combination of materials in hand, including duplicates if you have duplicate cards. If neighbor has part of what is demanded, must give up as much as possible. If you have fewer Order cards than Legionary actions the extra actions are lost.
+
+\section*{Merchant - Selling Material}
+Take material from Stockpile and tuck face-down under Vault. Value of card counts as Victory Points at end of game. When the card is put into Vault other players may ask to see it. After current turn no player (not even you) may inspect the card. Limited by influence.
+
+\section*{End Game}
+The game ends immediately when any of the following occur:
+\begin{itemizeCustom}
+    \item The draw deck runs out
+    \item A player lays a foundation which claims the last Site card (excluding Out of Town). This can't be completed.
+    \item A Catacomb is completed
+    \item Any player has completed the Forum and has at least one of each client
+    \item All players decide to "surrender" to another player for whatever reason
+\end{itemizeCustom}
+
+\section*{Scoring}
+\begin{itemizeCustom}
+    \item 1 Victory Point for each Influence
+    \item Combine Value of cards in Vault
+    \item 3 Victory Points for each Merchant Bonus card
+    \item Any Victory Points granted by the Functions of completed structures
+\end{itemizeCustom}
+
+\subsection*{Merchant Bonus}
+A player receives one of the Merchant Bonuses if they have the most of that material in their Vault. If there is a tie, the bonus is not given.
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
