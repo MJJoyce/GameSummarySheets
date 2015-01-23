@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.2em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Horus Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{itemizeCustom}
+    \item Sort tiles by symbol on back.
+    \item Place Temple of Hours and all gold-backed "random" tiles with reddish scarab in bag.
+    \item Sort purple-backed tiles by type. Place near play area with scarab side up.
+    \item Make pile of river/necropolis tiles and place nearby.
+    \item Place silver-backed river-start tile (black step-pyramid) with the river end tiles (gold barges) on either side.
+    \item Give each player 20 influence tokens of one color.
+    \item Give each player 1 purple-backed "river-transport" card.
+    \item Shuffle gold-backed cards and deal 5 to each player. Place remaining cards near play area.
+\end{itemizeCustom}
+
+\section*{Goal of the Game}
+Gain the most influence by building and controlling regions of the kingdom of Kemet.
+
+\section*{Player Turn}
+\subsection*{Explore the Kingdom}
+Draw 1 random tile from the tile bag and place it adjacent to one or more tiles in the kingdom.
+
+\subsection*{Expand your Influence}
+Play a card from your hand. Select tile(s) from the face-up tiles in the reserve matching the card and place adjacent to one or more tiles. Then, if possible, place an influence marker on a region whose size corresponds to the number (or number range) on the played card. The influence marker does not need to be played adjacent to/on the region of the tile you just played nor does it need to match the region on the card. There must be at least 1 free tile in the region where you play your influence. If you use a river transport card you instead move an influence marker (see below).
+
+Note, the region sizes listed on the cards ranges from 1-5 so you can't add new influence to a region of 6+ tiles unless you merge two regions or move an influence marker with a "river-transport" tile.
+
+\subsection*{Draw to Hand Limit}
+Draw back up to 5 cards
+
+\section*{Playing Tiles}
+When placing a tile it must touch at least one other tile in the kingdom. You may place it so that the entire side aligns with the other tile or so that the corner of the tile touches the center mark on the other tile.
+
+\section*{Creating Regions}
+A placed tile becomes part of a region. A region is a group of connected tiles of the same type (symbols don't matter). Each region is worth points at the end of the game equal to number of tiles in region. Regions have no size limit but can't be worth more than 10 points. All regions located on islands (region entirely surrounded by river) double in value. Two or more regions may share an island.
+
+\section*{The River Nile - Placing River Tiles}
+A river tile must be placed replacing one of the river end tiles. Then place the river-end tile anywhere adjacent to the new river tile. Then, you must take a second river tile from the reserve stacks and place it:
+\begin{itemizeCustom}
+    \item As a River: Add it to the river at any point along the river. If you choose to move a river-end tile, you then place that river-end tile anywhere adjacent to the river.
+    \item As a Necropolis: Place it like a regular non-river tile. A Necropolis is never part of a region.
+\end{itemizeCustom}
+Note, a river-end tile may never be blocked. It must have an exit. You cannot place any tile such that a river-end tile would be blocked. If the river forks, the non-river ends may be blocked.
+
+\section*{The Temple of Horus}
+If the special Temple of Horus Tile is drawn from the bag it must be placed adjacent to the river but not adjacent to any region. If there is no legal place, discard the Temple of Horus. Any regions that have at least one tile adjacent to the Temple are doubled in value at the end of the game. However, a region still cannot be worth more than 10 points.
+
+\section*{River-Transport Cards}
+When playing a river-transport card you do 2 steps:
+\begin{enumerateCustom}
+    \item Play 2 river/necropolis tiles
+    \item Optionally, move one of your influence markers from one region to another. Both regions must boarder the river. 
+\end{enumerateCustom}
+
+\section*{First Turn}
+On each player's first turn, the region size on the cards played counts as 1 regardless of value.
+
+\section*{End Game}
+When a player finishes a turn that exhaust the second of the 5 stacks of tiles in reserve.
+
+Note, when the first stack is exhausted players immediately discard any cards in their hands of that color/type.
+
+\section*{Scoring}
+You get points for each region that you control (or share control). 1 point per tile in the region. Remember, the Temple of Horus doubles the value of adjacent regions and island regions are also worth double.
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
