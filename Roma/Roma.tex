@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Roma Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Set out 6 dice discs in ascending order. Place the "money" and "cards" discs on either end.
+    \item Give each player 10 victory points and the 3 action dice in one color.
+    \item Shuffle the cards and deal 4 to each player.
+    \item Each player gives the other play 2 of their cards.
+    \item Each player starting with the first player then lays out their 4 cards on their side of the play area. Only 1 card can be placed next to any one disc.
+\end{enumerateCustom}
+
+\section*{Goal of the Game}
+\section*{How to Play}
+Play commences in turns to make a complete "move". A "move" is made up of 3 phases:
+
+\subsection*{Phase 1 - Add up Unoccupied Dice Discs}
+If not all the dice discs are occupied by the player's cards the player loses 1 VP per space. Place in VP stockpile.
+
+\subsection*{Phase 2 - Throw the Dice}
+Roll all 3 dice. If all 3 dice are the same, the player may throw all 3 again.
+
+\subsection*{Phase 3 - Carry out the Actions}
+The following 4 actions may be taken in any order and any number of times:
+\begin{itemizeCustom}
+    \item Lay Cards - Pay the price on the card and place from hand onto one of the dice discs. If a card is already there it is discarded and replaced.
+    \item Take Money - Place one of your dice on the "money" disc and take money equal to the die value.
+    \item Take Card(s) - Place one of your dice on the "cards" disc an draw cards equal to the die value. Keep 1 and discard the remainder.
+    \item Activate a Card - Place one of your dice on the disc showing the same number. Carry out the action on the card.
+\end{itemizeCustom}
+
+\section*{Battle}
+Some cards allow a player to battle the opponent's cards. The attacker (current player) rolls the battle die. If the die value is greater than or equal to the defence value of the card under attack, the attacker wins and the card is discarded. Otherwise, nothing happens.
+
+\section*{End Game}
+The game ends immediately when:
+\begin{itemizeCustom}
+    \item A player has no victory points left
+    \item There are no victory points in the stockpile
+\end{itemizeCustom}
+
+The player with the most victory points wins.
+
+\end{multicols*}
+\end{mdframed}
+\end{document}
