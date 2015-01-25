@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Rune Age Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Separate cards by type
+    \item Choose a scenario. Collect the neutral cards indicated by wax seals on back of scenario card.
+    \item Give each player 1 race.
+    \item Place each player's home realm in front of them.
+    \item Each player organizes strongholds and faction unit cards face-up in play are. Group by cost. (Should have 5 piles.)
+    \item Populate the central play area based on player count (1/2/3/4 players):
+        \begin{itemizeCustom}
+            \item 1-Gold Pile: 9/14/19/24
+            \item 2-Gold Pile: 8/10/12/14
+            \item 3-Gold Pile: 4/6/8/10
+            \item Neutral Piles (each type): 2/3/4/5
+            \item Neutral Cities: 2/3/4/5
+        \end{itemizeCustom}
+    \item Each player takes 5 1-Gold cards and 3 1-Cost units from their Barracks. Shuffle to make starting deck.
+    \item Draw 5 card starting hand.
+    \item Gather all even cards that match the back of the scenario card. Gather all Stage 2 Events, shuffle, place face-down. Gather all Stage 1 Events, shuffle, place face-down on top of Stage 2 Events.
+    \item Place the objective card in the central play area.
+\end{enumerateCustom}
+
+\section*{Player Turn}
+\begin{enumerateCustom}
+    \item Refresh Exhausted Cities and Strongholds
+    \item Perform any Number of Actions
+    \item Discard Hand (retain cards by spending one influence per card)
+    \item Draw up to Five Cards
+\end{enumerateCustom}
+
+\section*{Performing Actions}
+\subsection*{Combat Action}
+Play unit cards from hand into play area. All of these \emph{participating units} make up player's \emph{army}. May perform multiple combats per round but may only attack each target once per round.
+
+\subsection*{Unit Card Action}
+Perform a Unit Card action by exhausting card in play area or playing card from hand with Keyword \textbf{Action}. Discard after resolving card's ability. Cannot use card abilities during combat.
+
+\subsection*{Spend Gold Action}
+Play Gold Cards from hand to:
+\begin{itemizeCustom}
+    \item Purchase Units. Place into discard pile.
+    \item Purchase Strongholds. Place above player's Home Realm.
+    \item Purchase Special Cards (scenario dependent).
+\end{itemizeCustom}
+
+\subsection*{Spend Influence Action}
+Exhaust cards that generate influence then use it to purchase:
+\begin{itemizeCustom}
+    \item Acquire neutral cards. Place in discard pile.
+    \item Acquire gold cards. Place in discard pile.
+\end{itemizeCustom}
+
+\section*{Event Cards \& Event Phase}
+After each player has taken their turn for the round, draw top Event Card and resolve. After resolving, all players draw back up to 5 cards.
+
+\subsection*{Enemy Event Cards}
+Place near objective card. Players can engage Enemy Cards in combat.
+
+\subsection*{Instant Event Cards}
+Resolve and discard. If it targets multiple players, start with the first and continue clockwise.
+
+\section*{Rewards}
+If a player claims a Reward, generally from an event, place near Home Realm. Some cards provide gold or influence. These cards must be exhausted to gain those resources.
+
+\section*{Conducting a Battle}
+When the target of battle is not controlled by another character then the combat is a battle.
+\begin{enumerateCustom}
+    \item Declare Target
+    \item Assault: play unit or tactic cards one at a time from hand. Resolve \textbf{When Played} abilities immediately if desired.
+    \item Attrition: If the card shows an attrition die, role and destroy units equal to the number of skulls.
+    \item Resolution: Apply all \textbf{Resolution} abilities. Player chooses order. Side with highest total strength wins. If tied, player wins. See below for specifics:
+        \begin{itemizeCustom}
+            \item Secure a Stronghold or City:
+                \begin{itemizeCustom}
+                    \item Player's Army - Take Stronghold/City into play area above Realm Card.
+                    \item Stronghold/City - Player fails. Card remains in place.
+                \end{itemizeCustom}
+            \item Attack an Enemy Card:
+                \begin{itemizeCustom}
+                    \item Player's Army - If Enemy becomes a Reward, place in play area. Otherwise place in Event discard pile.
+                    \item Enemy - Player fails. Card remains in place.
+                \end{itemizeCustom}
+            \item Defend Against an Instant Card:
+                \begin{itemizeCustom}
+                    \item Player's Army - Player repels attack successfully. Continue with next player (if necessary).
+                    \item Instant - Player subtracts Instant's strength from Army strength to determine damage Home Realm suffers.
+                \end{itemizeCustom}
+        \end{itemizeCustom}
+    \item End of Combat: All wounded units are destroyed. Return them to place of origin. All surviving units return to owner's discard pile.
+\end{enumerateCustom}
+
+\section*{Conducting a Siege}
+When the target of battle is controlled by another character then that combat is a siege.
+\begin{enumerateCustom}
+    \item Declare Target
+    \item Assault: Players alternate playing one unit or tactic card starting with attacking player. Resolve \textbf{When Played} ability immediately if desired. This continues until both players pass. Player cannot play more cards after passing.
+    \item Resolution: Apply all Resolution abilities. Attacker resolves his first. Highest total strength witns. Ties go to defender. See below for specifics:
+        \begin{itemizeCustom}
+            \item Siege a Player-controlled City:
+                \begin{itemizeCustom}
+                    \item Attacking Army - Attacker puts city in his play area refreshed.
+                    \item Defending Army - Attack is repelled. Keep in its current state.
+                \end{itemizeCustom}
+            \item Siege a Home Realm:
+                \begin{itemizeCustom}
+                    \item Attacking Army - Subtract defending army strength from attacker's army strength. Home Realm takes that much damage.
+                    \item Defending Army - Attack is repelled.
+                \end{itemizeCustom}
+        \end{itemizeCustom}
+    \item End of Combat: All wounded units are destroyed. Return them to place of origin. All surviving units return to owner's discard pile.
+\end{enumerateCustom}
+
+\section*{End Game}
+Determined by scenario card.
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
