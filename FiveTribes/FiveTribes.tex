@@ -1,0 +1,168 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.2em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries}{\thesection}{0.1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Five Tribes Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{itemizeCustom}
+    \item Take player components
+        \begin{itemizeCustom}
+            \item 2 Player: Use all pink and blue components
+            \item 3-4 Player: One player marker and 8 camels
+        \end{itemizeCustom}
+    \item Each player gets 9 \$5 coins and 5 \$1 coin. Keep coins face down.
+    \item Mix 30 board tiles and place randomly face up in 5x6 grid to form the Sultanate.
+    \item Mix all meeples in bag and place 3 randomly on each tile.
+    \item Place bid order and turn order tracks near board.
+    \item Randomly place player markers onto bid order track to determine initial bid order.
+    \item Shuffle resource cards and place top 9 cards in row near draw pile.
+    \item Shuffle Djinn cards and place top 3 near draw pile.
+    \item Place Palaces, Palm Trees, and all remaining coins near the board.
+\end{itemizeCustom}
+
+\section*{Goal of the Game}
+Maneuver the five local tribes, invoke power Djinn, and gain influence to be come the new Sultan.
+
+\section*{Game Turn}
+\begin{enumerateCustom}
+    \item Bid for turn order
+    \item Player actions
+    \item Clean up
+\end{enumerateCustom}
+
+\subsection*{Bid for Turn Order}
+In order of markers on bid order turn track, take player marker, place on turn order track, and pay amount indicated on board. If a player bids zero and there is already some markers on the zero spots then first "push down" the existing markers. The last player to bid 0 will go before any other players who already bid zero. Highest value marker goes first.
+
+\subsection*{Player Actions}
+A player takes all the following actions before passing play to the next turn order marker owner.
+
+\subsubsection*{Move Turn Marker}
+Place turn order marker onto first empy spot on bid order track.
+
+\subsubsection*{Move Meeples}
+Select a tile with at least 1 meeple on it. Take all meeples from that tile and move them to onto adjacent tiles, drop 1 meeple on each tile you pass through, until you run out of meeples. You must follow the following 3 rules:
+\begin{itemizeCustom}
+    \item The last meeple that you drop must be onto a tile with at least 1 meeple of that color on it. Note, you pick the order that you drop meeples in on all tiles.
+    \item No moving diagonally.
+    \item No immediate backtracking to a tile you just passed through.
+\end{itemizeCustom}
+
+\subsubsection*{Tile Control Check}
+After placing the final meeple, pick up all meeples of that color from the tile. You should have at least 2 meeples of the same color now. If doing so removes all the meeples form that tile, take control of it and place a camel of your color on it.
+
+\subsubsection*{Tribes Actions}
+Now do the action of the tribe that you're holding.
+\begin{itemizeCustom}
+    \item Yellow Vizier Tribe: Place in front of you. Score at end of game.
+    \item White Elders Tribe: Place in front of your. Score at end of game and spend during the game to acquire/invoke Djinns.
+    \item Green Merchants Tribe: Place back in bag and take number of face up resource cards from row, starting at beginning. Do not replace any resource cards yet.
+    \item Blue Builders Tribe: Place back in bag and take gold coins as follows:
+        \begin{itemizeCustom}
+            \item Count surrounding Blue tiles including the one you ended on.
+            \item Multiply by the number of blue meeples you took.
+            \item Optionally, discard 1 or more slave card(s) to increment the multiplier factor by 1 per slave.
+        \end{itemizeCustom}
+    \item Red Assassins Tribe: Place back in bag. Kill one other meeple. This meeple can be either:
+        \begin{itemizeCustom}
+            \item 1 meeple of the color of choice on a tile no further away than the number of assassins. May discard 1 or more slaves to increase range. If this empties a tile of all its meeples you gain control of that tile. Place a camel on it.
+            \item 1 yellor or white meeple currently held by an opponent
+        \end{itemizeCustom}
+\end{itemizeCustom}
+
+\subsubsection*{Tile Actions}
+Perform the action on the tile where the last meeple was placed. You do not get to perform the action on a second tile that you may have acquired. If the action symbol is marked with a red array, the action is COMPULSORY.
+
+\subsubsection*{Merchandise Sale (Optional)}
+You may sale one or more suit of Merchandise cards to collect money from the band. All cards must be different. You cannot sell slaves.
+
+\subsection*{Clean Up}
+Replace all resource and Djinn cards that were taken. When replacing cards, shift any remaining cards to the front of the row first.
+
+\section*{End Game}
+The game ends at the end of the current turn when either:
+\begin{itemizeCustom}
+    \item A player drops his last camel on a tile. All other players are given a chance to take their actions for this turn as well.
+    \item No more legal meeple movement is possible. Current player and any other players may take other actions.
+\end{itemizeCustom}
+
+\section*{Scoring}
+Victory points are scored in the following ways:
+\begin{itemizeCustom}
+    \item 1 VP for each gold coin
+    \item 1 VP for each Vizier (yellow meeple) + 10 VP for each opponent who has less Viziers than you
+    \item 2 VP per Elder (white meeple)
+    \item Sum of all VPs for Djinns
+    \item 3 VP for each palm tree on all your tiles (one with a camel on it)
+    \item 5 VP for each palace on all your tiles
+    \item Sum of all VPs on all your tiles
+    \item Sum of VPs for each series of Merchandise (not including slaves) that are all different
+\end{itemizeCustom}
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
