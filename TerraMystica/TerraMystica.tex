@@ -1,0 +1,251 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Terra Mystica Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{itemizeCustom}
+    \item Place out the board and cult track.
+    \item Put one action token above each of the 6 power action spaces.
+    \item Lay out the Favor Tiles in 3x4 pattern.
+    \item Place the Workers, Coins, and Town tiles nearby the board. Keep the Town tiles face down.
+    \item Randomly select 6 scoring tiles. Start with space 6 and move to the first. If you pick the tile with a spade on the left for the 5/6th tile replace it. Cover the right half of the scoring tile with the Game End Token.
+    \item Randomly select bonus cards based on player count. For 2/3/4/5 players pick 5/6/7/8 cards.
+    \item Starting with first player and continuing clockwise, select a Faction and take the corresponding Faction board.
+    \item Place faction components out on Faction board.
+    \item Take Starting Resources as shown on top-right of Faction board. Adjust Cult Track if necessary. Check Power Bowls and place displayed amount in corresponding bowls.
+    \item Place the first structures. Starting with first player in clockwise order, place one Dwelling on existing Home terrain. Then starting with last player and in counterclockwise order, place another Dwelling.
+    \item Beginning with last player and in counterclockwise order, choose one Bonus card. Place 1 Coin from supply onto each leftover Bonus card.
+\end{itemizeCustom}
+
+\section*{Goal of the Game and Scoring Info}
+Score the most victory points by the end of the game. There are a number of ways to do this:
+
+\begin{itemizeCustom}
+    \item Each round marker indicates how to earn points that round
+    \item Some bonus cards award points
+    \item Some Favor tiles also awards points
+    \item Founding a Town
+    \item Improving Shipping or Terraforming skills
+    \item Some races special abilities
+    \item Trade victory points for power based on adjacency to other players.
+\end{itemizeCustom}
+
+At the end of the game you score:
+\begin{itemizeCustom}
+    \item The largest connected areas on the board score points.
+    \item Progress on the cult tracks.
+\end{itemizeCustom}
+
+
+\section*{Game Play}
+\subsection*{Phase 1: Income}
+Collect Workers, Coins, Priests, and Power. Income is always symbolized by an open hand icon. 
+\begin{itemizeCustom}
+    \item Take Workers based on visible Worker symbols on Dwelling track.
+    \item Take Coins equal to visible Coin symbols on Trading House track.
+    \item Take Priests equal to number of visible Priest symbols on Temple track (and once you have built a Sanctuary).
+    \item Gain power equal to visible Power symbols on Trading House track (and usually Stronghold after it was built).
+    \item Take additional income depicted on Bonus cards.
+\end{itemizeCustom}
+
+\subsection*{Phase 2: Actions}
+Begin with starting player and continue clockwise. Take one action. Continue until no player wants to take more actions. See below for action description.
+
+\subsection*{Phase 3: Cult Bonuses and Clean-Up}
+\begin{itemizeCustom}
+    \item Cult bonuses depicted on the current Scoring tile are awarded. Each player with enough progress on depicted track gets the displayed reward, multiple times if necessary. If the bonus is Spades you may Terraform terrain (but not build Dwellings). These spades don't carry over to future turns.
+    \item Return Action tokens on Power action spaces on Game board, special action spaces on Faction board, and on any Favor or Bonus tiles.
+    \item Put 1 Coin on each leftover Bonus card
+    \item Turn the current scoring tile face-down.
+\end{itemizeCustom}
+
+\section*{End Game}
+The game ends when all players have passed in the last round. Do final scoring for:
+\begin{itemizeCustom}
+    \item Cult scoring: On each track, the 3 highest players score 8/4/2 victory points respectively. You cannot score if on space 0. When there's a tie, divide the points evenly.
+    \item Area scoring: Determine number of structures you have that are directly or indirectly adjacent. The 3 highest players score 18/12/6 points respectively. When there's a tie, divide the points evenly.
+    \item Get 1 victory point per 3 Coins.
+\end{itemizeCustom}
+
+\section*{Bowls of Power}
+\begin{itemizeCustom}
+    \item Power actions require the use of power in Bowl III. Spend it by moving it from Bowl III to I
+    \item When gaining new power: Move as much power from Bowl I to II. If remaining power, move from Bowl II to III.
+    \item If all power is in Bowl III you cannot gain more power.
+\end{itemizeCustom}
+
+\section*{Action Explanations}
+\subsection*{1 - Transform and Build}
+First you may change the type of one terrain space and then immediately build a Dwelling if you terraformed to your Home terrain. In order to build a Dwelling:
+\begin{itemizeCustom}
+    \item The terrain must be your Home terrain.
+    \item The space must be unoccupied.
+    \item The space must be directly or indirectly adjacent to one of your structures.
+    \item You must pay the Dwelling cost.
+\end{itemizeCustom}
+Terraforming a space costs 1 Spade per step between source and destination terrain on Faction board.
+
+\noindent
+A Spade can be acquired by:
+\begin{itemizeCustom}
+    \item Exchanging Workers. Check Exchange track on Faction board for exchange rate.
+    \item Certain Power actions.
+    \item One Bonus card.
+\end{itemizeCustom}
+
+\noindent
+When gaining Spades via a Power action or Bonus card and you need more you may make up the rest by exchanging Workers. Spades may only be applied to a single Terrain space except when you gain 2 Spades and you only need 1. You may then Terraform 2 spaces for 1 spade each, but you cannot build a Dwelling on the second space.
+
+\noindent
+Important notes:
+\begin{itemizeCustom}
+    \item When building a Dwelling or Terraforming, check the current scoring tile and gain points if necessary.
+    \item After Terraforming you do not need to build a Dwelling immediately. You may do that in a different Action.
+    \item After building a Dwelling, your opponents get a chance to gain power (see below).
+\end{itemizeCustom}
+
+\subsection*{2 - Advancing on the Shipping Track}
+Advance Shipping track by paying the cost depicted on your Faction board and gain victory points depicted.
+
+\subsection*{3 - Lowering the Exchange Rate for Spades}
+Advance Exchange track by paying cost depicted on your Faction board and gain victory points depicted.
+
+\subsection*{4 - Upgrading a Structure}
+Replace one structure you have built with one of the ones that it may be upgraded into. Pay the cost depicted on the Faction board.
+\begin{itemizeCustom}
+    \item Dwelling to Trading House: Reduce Coin cost by 50\% if adjacent to opponent's structure.
+    \item Trading House to Stronghold: Gain access to faction special ability.
+    \item Trading House to Temple: Choose and take on Favor tile.
+    \item Temple to Sanctuary: Choose and take on Favor tile.
+\end{itemizeCustom}
+
+\noindent
+After upgrading a structure, your opponents get a chance to gain power (see below).
+
+\subsection*{5 - Send a Priest to the Order of a Cult}
+Place 1 Priest on one of the available spaces below a Cult track to advance that many spaces on that track. These Priests may never come back. If you don't want to lose the Priest, instead return Priest to your supply and only advance 1 space on that track.
+
+\subsection*{6 - Power Actions}
+Spend indicated power on Game board to use Power action. These may only be used once per round. Put an Action token on the space on the board to indicate that it may not be used anymore. You may Sacrifice Power if you do not have enough Power.
+
+\subsection*{7 - Special Actions}
+Perform a Special Action (indicated by an orange rectangle) and makr with an Action token. Special actions may only be taken once per round and are gained from Favor tiles, Bonus cards, and some Faction Stronghold powers.
+
+\subsection*{8 - Passing and New Starting Player}
+On your turn, if you can't/don't want to take any more actions you must pass. The first player to pass becomes the new Starting Player. Immediately return your Bonus card and take one of the 3 available ones. You can't take the one you just returned. Note, some bonus cards give you points when returning them.
+
+\section*{Power via Structures}
+After you build or upgrade a structure your opponents directly adjacent may gain power. Add up the power values of each adjacent opponent structure (listed on Faction board) to determine amount the opponent may gain.
+\begin{itemizeCustom}
+    \item For each power you gain this way you must lose the number of power minus 1 victory points. 1/2/3/4 Power loses 0/1/2/3 victory points.
+    \item If you gain any Power this way, you must take it all. Unless you don't have enough Power in Bowl I and II. Then you may take less and only pay for that amount.
+    \item You cannot end up with a negative score from this.
+\end{itemizeCustom}
+
+\section*{Sacrificing Power}
+If you don't have enough Power in Bowl III, you may move Power from Bowl II to Bowl III to make up the difference. For each Power moved this way, you must permanently remove 1 Power from Bowl II from the game. If you don't have Power in Bowl II to sacrifice you can't do this!
+
+\section*{Founding a Town}
+A Town is automatically founded when two conditions are met:
+\begin{itemizeCustom}
+    \item There are at least 4 structures of one color directly adjacent to one another. If one of them is a Sanctuary, only 3 are required.
+    \item The Power value of the structures is at least 7.
+\end{itemizeCustom}
+
+\noindent
+Take one of the town tiles and place it under one of the structures in the town. Building a town gives 3 potential bonuses:
+\begin{itemizeCustom}
+    \item Potentially score points if the current Scoring tile indicates it.
+    \item Immediately claim the rewards depicted on the chose town tile.
+    \item Each town provides a key which allows you to advance to the last space on ONE cult track.
+\end{itemizeCustom}
+
+The only thing that matters is direct adjacency when a town is formed. All directly adjacent buildings are included in the town, even if there are more than the required amount. New buildings added adjacent to a town are automatically part of that town. If two existing towns are merged they do NOT lose their individual rights or functions.
+
+\section*{Adjacency Rules}
+\subsection*{Direct Adjacency}
+Terrain spaces and structures are directly adjacent if they share a hexagon edge or if they're separated by a River but connected by a bridge.
+
+\subsection*{Indirect Adjacency}
+Terrain spaces and structures are indirectly adjacent if they're separated by 1 or more River tiles and your Shipping value is high enough to cover the distance.
+
+\section*{Misc}
+\begin{itemizeCustom}
+    \item When removing a structure from Faction board, always take from left to right.
+    \item At any time on top of your Action you may do any number of Conversions. It doesn't count as an action. You may Sacrifice Power if you don't have enough.
+        \begin{itemizeCustom}
+            \item Spend 5 Power for 1 Priest
+            \item Spend 3 Power for 1 Worker
+            \item Spend 1 Power for 1 Coin
+            \item Convert 1 Priest to 1 Worker
+            \item Convert 1 Worker to 1 Coin
+        \end{itemizeCustom}
+\end{itemizeCustom}
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
