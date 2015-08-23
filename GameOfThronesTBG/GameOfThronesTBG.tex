@@ -72,9 +72,9 @@
 	\item Divide \textbf{Westeros} cards (Roman Numeral Back) into 3 decks. Shuffle and place near board.
 	\item Find \textbf{Neutral Force} tokens based on player range. Place on board.
 	% TODO Determine which houses based on players
-	\item Determine player decks based on player numbers and distribute pieces.
+	\item Determine player houses and distribute pieces.
 	\item Place \textbf{Game Round} marker.
-	\item place \textbf{influence}, \textbf{victory}, and \textbf{Supply} markers on board. Check player boards for positions of tokens.
+	\item Place \textbf{influence}, \textbf{victory}, and \textbf{Supply} markers on board. Check player boards for positions of tokens.
 	\item Place starting units and \textbf{Garrison} tokens.
 	\item Place all \textbf{Power} tokens in a central pile. Each player receives 5 of their tokens.
 \end{enumerateCustom}
@@ -109,7 +109,7 @@ The game ends after 10 game rounds or if any player takes control of 7 areas con
 
 \section*{Action Phase}
 \begin{enumerateCustom}
-	\item Resolve Raid orders in turn order. Player \emph{may} remove adjacent enemy order. If remove Consolidate Power, gain one Power token and enemy loses one if possible.
+	\item Resolve Raid orders in turn order. Player \emph{may} remove adjacent enemy Raid, Consolidate Power, or Support Order. If remove Consolidate Power, gain one Power token and enemy loses one if possible.
 	\item Resolve March orders and combat in turn order. 
 	\begin{itemizeCustom}
 		\item Player \emph{may} move units assigned order separately or together into one or more adjacent areas
@@ -141,9 +141,23 @@ Initiated by Wildling Threat reaching 12 or Wildling Attack Westeros card being 
 
 \section*{Westeros Cards}
 \begin{itemizeCustom}
-	\item \textbf{Supply:} Each house, in turn order, counts number of Supply icons in areas it controls. Number of flags indicates number of armies and the number of units in each army. If current armies become invalid, remove units from board until supply limit is met.
+	\item \textbf{Supply:} Each house, in turn order, counts number of Supply icons in areas it controls. Number of flags indicates number of armies and the number of units in each army. If current armies become invalid, remove units from board until supply limit is met. Single unit is not an army.
 	\item \textbf{Mustering:} Players, in turn order, may add units to areas containing Castle/Stronghold. Castles provide 1 point of muster and Strongholds 2. Footman and Ships cost 1 point of muster. Knights and Siege Engines cost 2 (1 if upgraded from Footman). Footman must be located in mustering area to be upgraded. Unit can't be mustered if it violates supply limit. Ships may be mustered into ports or adjacent sea area. Can't be put into sea area if enemy occupies it.
 	\item \textbf{Clash of Kings:} Players bid for control of the influence tracks. Order is Iron Throne, Fiefdom, and then King's Court. All bidding is blind and bids are revealed simultaneously. Player with Iron Throne token breaks ties. All power tokens are returned to main supply. Highest bidder gets first location, second highest gets next location, etc.
+\end{itemizeCustom}
+
+\section*{Influence Tracks}
+\begin{itemizeCustom}
+    \item Iron Throne Track: Determines player turn order
+    \item Fiefdoms Track: Higher position wins ties against player in lower position
+    \item King's Court Track: Determines number of Special Order tokens available for each player (Stars on track position)
+\end{itemizeCustom}
+
+\section*{Dominance Tokens}
+\begin{itemizeCustom}
+    \item Iron Throne: Determine outcome of all ties (excluding combat and victory)
+    \item Valyrian Steel Blade: Once per round, use token to get +1 Combat Strength
+    \item Messenger Raven: At end of Assigning Orders step: Replace one of your tokens with an unused one or Look at the top card of Wildling deck. May place card on top or bottom of deck.
 \end{itemizeCustom}
 
 \section*{Ships}
@@ -207,6 +221,43 @@ Defense, March, and Support function as expected.
 	\item \textbf{Raid:} Use like regular Raid or remove one adjacent Defense Order.
 	\item \textbf{Consolidate Power: } Use like regular Consolidate Power or muster units in assigned area.
 \end{itemizeCustom}
+
+\begin{center}
+\line(1,0){200}
+\end{center}
+
+\section*{A Feast For Crows Expansion}
+\section*{Setup}
+\begin{itemizeCustom}
+    \item Stark, Lanister, Baratheon House cards are used. House Arryn uses House Tyrell components.
+    \item Setup initial unit placement based on included deployment cards.
+    \item Replace the I Westeros deck with the included expansion deck.
+    \item Place Neutral Force tokens as if playing a 3-player core game, expect place nothing on Storm's End.
+    \item Scoring tokens start off the board.
+    \item Give each player their House's Special Objective Card (place face-up nearby).
+    \item Shuffle Objective deck and deal 5 Objectives to each player. Each player keeps 3. Shuffle others back into deck. Players may not show ot talk about their Objective cards with other players.
+\end{itemizeCustom}
+
+\section*{Goal}
+Be the first and only person to reach position 7 on the scoring track.
+
+\section*{Garrison Tokens}
+King's Landing and The Eyrie Neutral Force tokens are treated as Garrison tokens for House Lanister and House Arryn.
+
+\section*{Objectives}
+Players now score points by completing objects instead of the number of Castles and Strongholds they control.
+
+\section*{Scoring and Supply}
+After each Action phase, resolve the following steps:
+\begin{enumerateCustom}
+    \item Update Supply: In turn order, all players update supply levels and then reconcile their armies.
+    \item Score Special Objectives: Each round, each player may choose to score their Special Objective card if possible. Score 1 Victory Point.
+    \item Score Other Objectives: In turn order, each player may choose to score \textbf{one} Objective card from their objective hand. Score victory points equal to the number next to their House symbol on the card. These may only be scored once.
+    \item Draw Objective Cards: Any player without 3 Objective cards draws 1 new Objective card.
+\end{enumerateCustom}
+
+\section*{Winning the Game}
+After the Draw Objective Card step, if any one player is at 7 Victory points they win. If multiple people are tied at 7 then the person who controls more total land areas wins. If there's still a tie, the player highest on the Iron Throne track wins.
 
 \end{multicols*}
 %\end{mdframed}
