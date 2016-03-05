@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Fury of Dracula Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+    \begin{enumerateCustom}
+        \item Place influence marker on 0 and time marker on Monday day space. Assign roles to players.
+        \item Shuffle item cards. Shuffle hunter + Dracula cards together. Sort hunter combat cards by type. Place all near board.
+        \item Sort Dracula encounter and combat cards. Sort location cards alphabetically. Place face down near board.
+        \item Randomize train ticket tokens face down. Separate remaining tokens and place near board.
+        \item Dracula draws 5 encounter cards to form starting hand and (if advanced rules) 1 rumor token.
+        \item Place hunters on board. Base game see rules for locations. Advance game hunters choose.
+        \item Dracula picks starting location. Can't be sea, Castle Dracula, or hunter occupied space. Place location card fact down on first spot on board along with Dracula figure.
+    \end{enumerateCustom}
+\section*{Goal of the Game}
+Hunters are searching for Dracula as he travels through Europe in secret so they can find and defeat him. Dracula wants to create new vampires and defeat the hunters (advance influence track to 13). 
+
+\section*{Playing the Game}
+Each round contains a Hunter Phase and Dracula phase. Rounds continue until the game ends (see End Game).
+
+\section*{Hunter Phase}
+Contains a \textbf{day} and \textbf{night}. During the day hunters move and search for Dracula. During the night they investigate and prepare for the next day. Characters activate in activate order (upper-left corner of character sheets).
+\subsection*{Move Action (Day Only)}
+Hunter may move along a road to an adjacent city; Or may spend a ticket token to move along railways. Value on spent ticket determines how many railways can be used to move; Or if hunter is in a port he may move to an adjacent sea zone; Or if hunter is in a sea zone he may move to an adjacent port or sea zone. Hunter \textbf{MUST} move if in a sea zone during the day and pass if in sea zone at night.
+
+\subsection*{Supply Action}
+If in large city, draw top card from item deck. Draw event card. If during day: Hunter keeps hunter icon card and discards Dracula card; If during night: Hunter keeps hunter icon card and Dracula keeps Dracula card.
+
+\subsection*{Trade Action}
+Choose another hunter in same city. Both hunters may show each other their items and tickets and may give any of those to each other. Exchange is private.
+
+\subsection*{Special Action}
+Hunter resolves either an effect from an event card in his hand or an ability on character sheet (if labelled as action).
+
+\subsection*{Reserve a Ticket Action}
+Hunter draws a ticket token from token pool. May have two ticket tokens.
+
+\subsection*{Rest Action}
+Recover one damage
+
+\subsection*{Search Action}
+Reveal any of Dracula's encounter cards at the current location.
+
+\section*{Dracula Phase}
+Dracula acts after all hunters have finished their night actions. Dracula will move and place an encounter card at his new locations
+
+\subsection*{Move}
+Slide all cards on trail down 1 space. Place one adjacent location card from location deck face down on start of trail. Dracula \textbf{cannot} use railways. Dracula suffers 2 damage when moving from a port to a sea zone and 1 damage when moving from a sea zone to another sea zone. If a hunter is at the city moved to, Dracula is revealed.
+
+\subsection*{Placing an Encounter Card}
+Dracula places an encounter card from his hand on the location card just played. If he placed a sea location or is currently revealed he cannot place an encounter card. Always maintain 5 encounter cards in Dracula's hand.
+
+\section*{End Game}
+Dracula wins by advancing the influence track to 13. This happens via maturing vampire encounter cards, resolving a "Fangs" combat card, or defeating a hunter. Hunters win if they defeat Dracula by causing him 15 damage.
+
+\section*{Additional Rules}
+\subsection*{Tickets}
+When moving on white railroads, only use the white number. When moving on yellow or a combination of white/yellow, use the yellow number. If no yellow you can't use the ticket on yellow railways.
+
+\subsection*{Maturing Encounters / Lairs}
+A location is matured if it moves off the sixth space of Dracula's trail when placing a new location card. If the location isn't matured it is converted to a lair. Move all cards to one of the lair locations at side of board (clear a space if necessary) and play an encounter card. During movement, Dracula can move to a lair. Place the lair location card on the trail and play an encounter card. The encounter cards are not discarded when dealing with lairs (allowing multiple encounters to exist in a location).
+
+\subsection*{Finding the Trail}
+When a hunter ends its movement, Dracula checks all cards on the trail and lairs. If that location is a hide out flip \textbf{only} the location card face up. Dracula may choose to ambush a hunter with an appropriate card at the location any time a hunter ends movement on that location. When a hunter does a search action, all encounter cards at that location are revealed and resolved (ignoring matured effect). If Dracula is in that location, place his figure on the board. Combat occurs at the next dawn/dusk. Dracula cannot be revealed while at sea.
+
+\subsection*{Combat}
+If a hunter is on the same city as Dracula at dawn or dusk, combat occurs. Hunter adds one \textbf{Dodge}, \textbf{Punch}, and \textbf{Escape} to hand of item cards. Dracula draws 5 combat cards.
+
+\begin{enumerateCustom}
+    \item \textbf{Choose Combat Cards:} Each player picks 1 card from hand. Hunter must choose a card with a banner.
+    \item \textbf{Compare Combat Icons:} Dracula picks engaged hunter if multiple are present. Flip cards up. If the icon on Dracula's card is present on the engaged Hunter's card, cancel the effect and flip face down.
+    \item \textbf{Resolve Dracula's Effect:} If Dracula's card wasn't cancelled, resolve the effect and flip face down.
+    \item \textbf{Resolve Hunter's Effect: }If Hunter's card wasn't cancelled by Dracula's, resolve effect.
+    \item \textbf{Refresh Hands:} Dracula draws another card. Return Hunter's card played in previous round to hand (nothing on first round).
+\end{enumerateCustom}
+
+Combat continues until:
+\begin{itemizeCustom}
+    \item Dracula has played 6 combat cards
+    \item Dracula/Hunters win the game
+    \item All hunters in combat are bitten, defeated, or have escaped.
+    \item Dracula resolves a card allowing him to escape.
+\end{itemizeCustom}
+Return Hunter combat cards to respective piles. Shuffle all Dracula combat cards into deck.
+
+\subsection*{Damage and Bites}
+If a hunter's health drops to 0 that character is defeated. At Dawn, place figure on nearest (by roads count) hospital space, discard all event and item cards, and remove all damage, bite, and ticket tokens. When a hunter is bitten, place a bite token on character sheet. It is now weakened and mush keep one event and item card revealed. Revealed items are hidden during combat. If a hunter is bitten and has no bite space it is defeated. Advance the influence track 2 spaces plus number of despair tokens on track.
+
+\subsection*{Fighting Vampires}
+Same as Dracula combat. Vampires have health on their card. Cannot escape until 3 combat cards are in play.
+
+\subsection*{Special Locations}
+\textbf{Castle Dracula} allows Dracula to heal 5 health. Hunters cannot supply or reserve a ticket. \textbf{Hospitals} are attached to some cities. Hunters can supply but only gets an item card and a movement action moves him to the attached city.
+
+\subsection*{Rumor Tokens}
+Dracula gains an additional token each time a despair token is placed. After placing an encounter card, Dracula may place a rumor token on one of the first 3 hideouts. Matured vampires in a location with a rumor token give 1 additional influence.
+
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
