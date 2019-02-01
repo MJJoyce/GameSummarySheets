@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Blood Rage Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+%\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Each player takes a matching Clan Sheet, figures, and markers.
+    \item Place Glory Marker on 0 spot on board.
+    \item Place Clan Tokens on Clan Stat (6 Rage, 3 Axes, 4 Horns) and Rage Track (6 Rage).
+    \item Set out the board, Valhalla sheet, and Age Track sheet.
+    \item Take Pillage Tokens (description), place green bordered one face up on Yggdrasil province, shuffle others and place face up randomly in 8 other provinces.
+    \item Take the 8 Ragnar\"ok tokens and shuffle them. Place one on each spot on Age Track text side up.
+    \item Place the Doom token on the province indicated by the First Age Ragnar\"ok token.
+    \item For a 2/3/4 player game draw 3/2/1 Ragnar\"ok tokens and place them on the indicated regions "destroyed" side up.
+    \item Separate cards by backs (3 decks). Remove cards for high player counts if needed (pg. 11 for location). Shuffle each deck and place on appropriate Gods' Gifts spots of Age Track.
+    \item Place Monster figures out near board.
+    \item Place Saga token () on the first spot of the First Age on Story Track.
+    \item Give First Player token to starting player.
+\end{enumerateCustom}
+
+\section*{Goal of the Game}
+Achieve the greatest amount of glory before world comes to a fiery end. You gain glory through victory in battle, pillaging, accomplishing the gods questions, and dying valiantly in battle.
+
+\section*{Phases of Play}
+Move the Saga token on the Age Track to help track the current phase.
+
+\subsection*{Gods' Gifts}
+\begin{enumerateCustom}
+    \item If 2nd/3rd Age, place leftover card from hand face down on Clan Sheet on top of symbol.
+    \item Take deck from Age Track and deal 8 to each player. Remove remaining cards.
+    \item Draft cards (take 1, place face down on Clan Sheet, pass remaining left) until each player has six new cards. Take 2 remaining cards and discard.
+\end{enumerateCustom}
+
+In a 2-Player game, draft 2 cards at once instead of 1.
+
+\subsection*{Action}
+Players begin the Action phase with the amount of Rage indicated on Clan Sheet. First Player goes first and continues clockwise.
+
+\begin{enumerateCustom}
+    \item Pick action to perform
+    \item Pay Rage cost if necessary by adjusting Rage Clan Token.
+    \item Take Action
+    \item Play passes to next player
+\end{enumerateCustom}
+
+    \textbf{If you have 0 Rage you cannot perform any actions, including actions that cost 0 Rage.}  All that player can do is react to other players' actions.
+
+    \subsubsection*{Invade}
+    Place figure from reserve onto empty village in any outer province. Pay Rage equal to unit's STR. Ships must be placed in a fjord. Note, invading with your Leader doesn't cost any Rage.
+
+    \subsubsection*{March}
+    Pay 1 Rage. Choose one province (not a fjord) and move any number of figures from there to empty villages in another single province. The destination does not have to be adjacent.
+
+    \subsubsection*{Upgrade}
+    Play Upgrade card from hand and pay Rage equal to its STR. Place card on appropriate slot on Clan Sheet. If there is already a card in that slot discard it first.
+
+    \textbf{Troop Upgrades:} When you play a Leader, Warrior, or Ship upgrade you may, if you have an available figure of that type, Invade without spending extra Rage.
+
+    \textbf{Monster Upgrades:} When you play a Monster upgrade, take that Monster, attach clan's base, and place in reserve. You may immediately Invade with it without spending extra Rage. Monsters can die, be sent to Valhalla, gain Glory, and return to your reserve like normal. You can only have 2 monsters. Discard a previous one if you want to play another.
+
+    \subsubsection*{Quest}
+    Commit to a quest by playing it face down from your hand on Clan Sheet on top of Clan Symbol. It costs no Rage and there is no limit to the number of committed quests. There's no penalty for failing quests.
+
+    \subsubsection*{Pillage}
+    Choose a province that has at least one of your figures in it (or in a supporting fjord) and has not been successfully pillaged this phase. It costs no Rage to pillage.
+
+    \begin{enumerateCustom}
+    \item \textbf{Call to Battle:} Starting with player on left in clockwise order, you may move 1 unit from adjacent regions into an empty village in the province. You may later move figure even if you previously passed. When all villages are filled or everyone passes, battle begins.
+    \item \textbf{Play Cards:} Each player in battle must choose one card from their hand (if they have any cards) and hold face down. Simultaneously reveal chosen cards. If Battle card, add its STR to your total. Special abilities listed take effect. Upgrade or Quest cards add no STR and have no effect.
+    \item \textbf{Resolution:} Highest STR wins. If tie, all lose. Losers are destroyed (including supporting fjord units). If Pillaging player wins, get reward according to Pillage Token and flip token. Otherwise, no one gets Pillage Reward. Winner of battle gains Glory according to their Axes stat.
+    \end{enumerateCustom}
+
+    \textbf{Note:} If there are no enemy units in the province, you automatically pillage, gain its rewards, and flip Pillage token. You don't gain any glory for winning a battle.
+
+\subsection*{Discard}
+All players must discard down to 1 card.
+
+\subsection*{Quest}
+Each player reveals all Quests they committed to. If you have fulfilled, gain indicated Glory and may increase one clan stat one step. Discard all revealed Quests, whether fulfilled or not.
+
+\subsection*{Ragnar\"ok}
+Take Ragnar\"ok token from Age Track and place on corresponding province "destroyed" side up. All units in region \& supporting fjords die and move to Valhalla. Get Glory for each unit as indicated on Ragnar\"ok token slot on Age Track. Place Doom token on province indicated by next Age's Ragnar\"ok token.
+
+\subsection*{Release Valhalla}
+All figures in Valhalla are returned to owners.
+
+\section*{End of an Age}
+Flip all Pillage tokens back to "reward" side. Pass first player token left. Move Saga token to first phase of next Age.
+
+\section*{End Game}
+When the Third Age ends the game is over. Players gain additional glory for each stat raised to the indicated steps on the Clan Board. Most Glory is the winner!
+
+\end{multicols*}
+%\end{mdframed}
+\end{document}
