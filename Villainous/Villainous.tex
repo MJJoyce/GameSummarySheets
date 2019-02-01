@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Graphics importing
+\usepackage{graphicx}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Villainous Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Each player chooses a Villain. Take all relevant components
+    \item Place Villain marker on left-most location of board
+    \item Place Lock Token on any locations with Lock symbol on board
+    \item Shuffle Villain and Fate Decks. Place on left and right of board
+    \item Draw starting hand of 4 cards from Villain deck
+    \item Choose first player. 2nd/3rd \& 4th/5th \& 6th get 1/2/3 power respectively
+\end{enumerateCustom}
+
+\section*{Goal of the Game}
+Each Villain has a different objective marked on their game board. Read these out loud so everyone knows the objectives. As soon as a player fulfills their Villain's Objective, the game ends and that player wins.
+
+\section*{Player Turn}
+Perform each of the following steps in order.
+
+\subsection*{Move Your Villain}
+Move your Villain Marker to a different location. You may move to any location that is not locked. You may not stay at your previous location.
+
+\subsection*{Perform Actions}
+You may perform all of the actions available on your Villains current location in any order. All actions are optional. Actions may become covered by Fate cards. Covered actions my not be performed until the card covering them is moved or discarded. When an action is uncovered, it is immediately available and may be performed if it is still your turn and your Villain is at that location.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/GainPower.png}\hspace{0.1em} Gain Power}
+    Take Power Tokens equal to the number on the symbol.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/PlayCard.png}\hspace{0.1em} Play a Card}
+    Play a card from your hand. You may play one card for each Play a Card action. You must pay the cost (Power Token symbol in top left) to play the card. Item or Ally cards may be played to \textbf{any location}. Play to space below location.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/Activate.png}\hspace{0.1em} Activate}
+    Choose one Item or Ally in your Realm with an Activate Symbol. Pay the card's Activation Cost, if any, and perform the card's ability.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/Fate.png}\hspace{0.1em} Fate}
+    Choose an opponent to target and \textbf{reveal} two cards form the top of their Fate deck. Play one and discard the other face up to their discard pile. You decide how to use the Fate card's ability against opponent. A Hero may be played to any location that isn't locked. Play in space on top of location. In 5/6 player games, give the target of the Fate action the Fate Token. They cannot be target again while they have the Fate Token.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/MoveItemOrAlly.png}\hspace{0.1em} Move an Item or Ally}
+    Move one Item or Ally at any location to an adjacent location. You cannot move an Item/Ally in/out of a locked location. You cannot move an Item that is attached to an Ally or Hero.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/MoveHero.png}\hspace{0.1em} Move a Hero}
+    Move one Hero at any location to an adjacent location. You may not move it in/out of a locked location.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/Vanquish.png}\hspace{0.1em} Vanquish}
+    Defeat one Hero at any location using one or more Allies that are already at the same location. The Allies strength (bottom left number) must be $\geq$ Hero's strength. Discard the Hero and Allies used.
+
+    \subsubsection*{\includegraphics[scale=0.40]{images/DiscardCards.png}\hspace{0.1em} Discard Cards}
+    Discard as many cards as you want from your hand.
+
+\subsection*{Draw Cards}
+If you have fewer than 4 cards in hand, draw up to 4 from Villain deck. If the deck is empty, shuffle the discard pile and continue to draw.
+
+\end{multicols*}
+\end{mdframed}
+\end{document}
