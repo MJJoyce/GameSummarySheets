@@ -68,17 +68,13 @@
 {\end{itemize}}
 
 \begin{document}
-%\begin{mdframed}[style = customFrame]
 \begin{multicols*}{2}
 
 \section*{Setup}
 \begin{enumerateCustom}
     \item Place 1 \textbf{Encounter Token (green compass)} on each territory marked with encounter symbol.
-    \item Place resource tokens, coins, and multiplier tokens next to board.
-    \item Shuffle \textbf{Combat Cards (yellow)} and place on board.
     \item Shuffle Factor Cards (purple) and draw Player Count + 1. Place face-down on board and return remainder to box w/o looking.
-    \item Shuffle Encounter Cards (green) and place on board.
-    \item Shuffle Objective Cards (red) and place on board.
+    \item Shuffle encounter, object, and combat cards. Place on respective board spaces.
     \item Randomly select one structure bonus tile and place face-up below popularity track.
     \item Randomize Faction and Player Mats and deal 1 of each to players.
     \item Faction Mat specifies starting Power Track location and number of Combat Cards to draw.
@@ -89,7 +85,6 @@
     \item Place 4 structure tokens in corresponding boxes.
     \item Place 4 recruit tokens (cylinders) on circular bottom row spaces.
     \item Place 4 mechs on spaces on Faction Mat.
-    \item Place 6 star tokens in upper left corner of Faction Mat.
     \item First Player is determined by number in the top right corner of Player Mat starting items.
 \end{enumerateCustom}
 
@@ -97,33 +92,25 @@
 Make your faction the richest and most powerful in Eastern Europa by exploring and conquering territory, enlisting new recruits, producing resources and workers, build structures, and deploy mechs.
 
 \section*{Player Turn}
-Players take turns on after another until a player places their 6th star on the board. On your turn, do the following sequentially:
+Choose 1 or 4 sections on Player Mat (diff. than prev. turn). In order, take either top-row action, bottom-row action, both, or neither.
 
-\begin{enumerateCustom}
-    \item Place action token on a different section of Player Mat than previous turn.
-    \item (Optionally) Take the top-row action in that section.
-    \item (Optionally) Take the bottom-row action in that section.
-\end{enumerateCustom}
-
-    The costs (red boxes) and befits (green boxes) on Player Mat are the empty spaces \textbf{before} the action is taken. Resources gained from the top-row action may be used to pay for the bottom-row action. The name of an action is marked next to the benefits for taking the action.
+The costs (red boxes) and befits (green boxes) on Player Mat are the empty spaces \textbf{before} the action is taken. Resources gained from the top-row action may be used to pay for the bottom-row action. The name of an action is marked next to the benefits for taking the action.
 
 \section*{Top-Row Actions}
 \subsection*{Move}
-\textbf{Either} move up to 2 different units you control from one territory to adjacent one or gain \$1
+Either move up to 2 different units you control from one territory to adjacent one or gain \$1
 
 \begin{itemizeCustom}
     \item \textbf{Resources and Workers:} Units may pick/place any number of resource tokens during Move. Mechs can carry any number of resources and workers. Mech moving worker doesn't cost worker its move.
     \item \textbf{Rivers and Lakes:}  By default, units can't move across rivers or onto lakes. \textbf{River} is a body of water on the border between two land territories. \textbf{Lake} is a body of water comprising entire territory hex.
     \item \textbf{Tunnels:} All territories with the tunnel icon (red/black) are considered adjacent for Move.
-    \item \textbf{Home Base:} By default, you can't Move any unit into a Home Base.
     \item \textbf{No Limit:} No limit to number of samee-faction units that share a territory.
-    \item \textbf{Encounters:} If character moves into territory with encounter token, end movement and can't move again this turn. After all combats resolved, if character is still in such territory, discard encounter token and resolve.
+    \item \textbf{Encounters:} If character moves into territory with encounter token, end movement. After all combats resolved, if character still there, discard encounter token and resolve.
     \item \textbf{Moving into opponent-controlled territories}
         \begin{itemizeCustom}
             \item Workers can't move by themselves into territory controlled by enemy units.
-            \item \textbf{Controlled by workers:} End movement, can't move again this turn. After Move completed, all enemy workers retreat to home base. You lose 1 popularity per worker. 
+            \item If enemy units, end movement. If only enemy workers, they retreat to Home Base. Lose 1 popularity per worker. If character/mechs there, initiate combat after Move completed.
             \item \textbf{Controlled by structure:} Any unit can move into territory controlled by only structure. Unit's player now controls territory.
-            \item \textbf{Controlled by character/mech:} End movement. Opponent still temporarily controls territory. After Move completed, if any of your mechs/character share territory with opponent's, combat happens.
         \end{itemizeCustom}
 \end{itemizeCustom}
 
@@ -131,7 +118,7 @@ Players take turns on after another until a player places their 6th star on the 
 Pay \$1 and gain either power on Power Track or draw Combat Card(s)
 
 \subsection*{Produce}
-Pay cost on all exposed red rectangle, choose different territories and each worker there produces 1 resource. Resource type is dictated by terrain type (Terrain Icon shows resource type). If a worker is produced, remove left-most worker from Player Mat \textbf{after} paying cost.
+Pay cost on all exposed red rectangles, choose different territories and each worker there produces 1 resource. Resource type is dictated by terrain type (Terrain Icon shows resource type). If a worker is produced, remove left-most worker from Player Mat \textbf{after} paying cost.
 
 \subsection*{Trade}
 Pay \$1 and either gain 2 resource tokens (any combination) and place on territory you control w/ at least 1 worker on it. Can't do this if all workers on Home Base. Or, increase Popularity on track.
@@ -228,15 +215,14 @@ The person with the most coins wins:
 
 \textbf{Alliance/Bribes:} Players may make informal agreements. Only tangible items exchangeable are coins. Can't negotiate out of combat that has already begun. Agreements aren't enforceable.
 
-\subsection*{Types of Units}
+\textbf{Types of Units}
 3 Unit types (characters, mechs, and workers) can all move around the board (not over rivers/lakes by default) and transport any number of resource tokens. Plastic units can engage in combat, wood ones cannot.
 
-\textbf{Characters} can engage in combat, have encounters, and (once a game) gain a Factory card
-
-\textbf{Mechs} can engage in combat and transport any number of workers {\textbf{not characters}} when moving.
-
-\textbf{Workers} can produce resource and workers, deploy mechs, and build structures.
+\begin{itemizeCustom}
+    \item\textbf{Characters} can engage in combat, have encounters, and (once a game) gain a Factory card
+    \item \textbf{Mechs} can engage in combat and transport any number of workers {\textbf{not characters}} when moving.
+    \item \textbf{Workers} can produce resource and workers, deploy mechs, and build structures.
+\end{itemizeCustom}
 
 \end{multicols*}
-%\end{mdframed}
 \end{document}
