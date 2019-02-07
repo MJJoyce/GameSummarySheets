@@ -1,0 +1,224 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Alchemists Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Flip board based on \# of players.
+    \item Shuffle the Adventurer Tiles (man staring at poison bottle) face down, remove 1 randomly \& return to box. Place on Adventurer Space (bottom left of board) and flip top tile face up.
+    \item Conference tiles go into Adventurer stack. Pick side, graduate hat for apprentice or mage hat for master, and insert into stack. (I -> II) under top 2 adventurers, (II -> III) above bottom adventurer.
+    \item Split Artifact Cards by card back (I, II, \& III) and shuffle. Draw 3 from I and place on board. Draw 3 from II \& III and place face up in a row by the board. Return rest to box.
+    \item Shuffle the Ingredients cards and place on board in bottom right. Deal 5 face up to the ingredients row.
+    \item Give players a Player Board, 2 Gold, 2 Flasks, 2/3 (Master/Apprentice Variant) Ingredient cards, 2 Favor cards (discard 1), and 4 Bid Cards. Assemble laboratory and notebook.
+    \item Give each player 6/5/4 Action Cubes for 2/3/4 player games. Keep 3 and place remaining on top of Adventurer Deck (retrieve all after first round).
+    \item Set out Theory Board. Place 5 Grant tiles in middle, set Player Flask on 10 reputation space, and set out Alchemical Tokens.
+    \item If playing Master Variant, set out 6 conflict tokens.
+\end{enumerateCustom}
+
+\section*{Game Round}
+Game is played in 6 rounds.
+\begin{enumerateCustom}
+    \item \textbf{Choose Play Order:} 1st player going clockwise, choose an order on the Order Space. Lower gives more cards but disadvantage when resolving actions. 2 players can pick same space. Draw \# of Ingredient and Favor cards from face down decks or pay Gold if necessary.
+    \item \textbf{Declare Actions:} Lowest (more cards) to highest (fewer cards) turn order, each player declares all their actions at once. Actions are evaluated per row. Each player has own action row per space. Lowest turn order places cubes on bottom row, highest on top.
+    \item \textbf{Resolve Action Spaces:} Resolve actions clockwise from bottom right to top right. On each space, resolve actions in row order. Second action is taken after everyone takes their first action. You may also decline your action for a space. Place cube(s) into unused cubes space on board.
+    \item \textbf{End of Round:} 
+        \begin{enumerateCustom}
+            \item Conference: If there's a conference this round (end of 3 \& 5) check the conference tile. Each player who has required \# of publications/endorsements gains 1 Reputation. Otherwise, lose reputation as indicated by conference. Don't count seals on Theories in Conflict.
+            \item New Artifact Cards: The end of a conference indicates new artifacts arriving. Remove any artifacts on board and move next "level" artifact cards to the Artifact Row.
+            \item Top Alchemist: Player with most seals on Theory Board gains 1 Reputation. If tied, all tied players gain 1. Don't count seals on Theories in Conflict.
+            \item Unused Cubes: For each pair of unused cubes draw 1 Favor Card. Take back unused cubes.
+            \item Hospital: Move any cubes from Hospital to unused cube space.
+            \item Remove old adventurer tile and place next one on space. If this reveals a conference, this will happen after the next round. Place conference tile on conference space, after Drink Potion. Conference or no, reveal the top adventure tile so you know which adventure is coming up.
+            \item Discard any ingredients in Row, deal 5 new ingredients face up.
+            \item Move all order markers (except those on paralysis space) off. Pass starting player 2 left most player who isn't paralyzed.
+        \end{enumerateCustom}
+\end{enumerateCustom}
+
+\subsection*{Final Round}
+When setting up Final Round, replace Test on Student and Drink Potion action spaces with the Exhibition board. Exhibition actions are declared as part of other action declarations.
+
+\subsubsection*{Resolving}
+Remove cube from action space and pace it on 1 of 6 potions depicted. Prepare 2 ingredients from hand and attempt Exhibit Potion. If you fail, place cube on Thumbs-Down space. Lose 1 reputation. If you succeed and you're the first, place cube on Thumbs-Up space and gain 1 Reputation. Otherwise, place cube in one of space below. If you successfully exhibit 2 difference signs of the same color you gain 2 Reputation
+
+\section*{Actions}
+\subsection*{Forage for Ingredient (Available 1st Round)}
+Take either 1 face up ingredient or draw top of deck. Face up cards are not replaced. When all players finish action here discard remaining cards face down.
+
+\subsection*{Transmute Ingredient (Available 1st Round)}
+Discard 1 ingredient face down and take 1 Gold piece.
+
+\subsection*{Buy Artifact (Available 1st Round)}
+Take artifact from row and pay Gold cost. Do not replenish rows.
+
+\subsection*{Test of Student (Available 1st Round)}
+Perform experiment. After the first negative potion players must pay student 1 Gold to test.
+
+\subsection*{Drink Potion (Available 1st Round)}
+Perform experiment. \textbf{Negative Blue:} Lose 1 Reputation. \textbf{Negative Green:} Put turn marker on paralysis space. Next round you won't place a turn marker. \textbf{Negative Red:} Put action cube in hospital space. You'll have 1 less cube to use next round.
+
+\subsection*{Sell Potion}
+First, all players on space may offer a discount to change order on space. Each player picks 1 discount card and reveals simultaneously. Reorder cubes based on \# of smiley faces on card, break ties with original order. Move cube from action space to space below the potion you plan to sell. Note that different player counts differ here. See pg. 11. Place other cube on Level of Quality guarantee. You can't offer a guarantee whose discounted price would be zero or less. Multiple players can place cube on same guarantee. Levels are:
+
+\begin{itemizeCustom}
+    \item Correct sign and color.
+    \item Correct sign. Neutral doesn't count.
+    \item Won't mix something with wrong sign. Neutral potion counts here. Lose 1 reputation.
+    \item No matter what you mix you get paid. Lose 1 reputation.
+
+\end{itemizeCustom}
+
+After selling, mark Player Board and Results Triangle (if applicable) with appropriate result. \textbf{Reputation levels affect potion selling. See Effects of Reputation}
+
+\subsection*{Publish Theory}
+Publish a new theory or endorse an existing one.
+
+\subsubsection*{Publish New Theory} Pay bank 1 Gold, gain 1 Reputation. Place Alchemical Token beneath ingredient. Place one seal face down on any seal of its seal spaces. If an Alchemical Token is already used you can't use it again.
+
+\subsubsection*{Endorsing a Theory} Pay 1 Gold to band and every other play who has seal on that theory. Put your seal on the theory. Can't endorse your own theory.
+
+\subsection*{Debunk Theory}
+\subsubsection*{Apprentice Debunking}
+You can only debunk ingredients that have a published theory.
+
+\begin{enumerateCustom}
+    \item Pick ingredient of the theory you are trying.
+    \item Pick the aspect you are hoping to prove wrong.
+    \item The app will then show the sign of that aspect of that ingredient. Compare with the token on the theory. If signs match, you failed and lose 1 Reputation. If not, you debunked the theory. See Consequences of Debunking.
+\end{enumerateCustom}
+
+\subsubsection*{Master Debunking}
+\begin{enumerateCustom}
+    \item Select 2 ingredients.
+    \item Select 1 of 7 available potion types.
+    \item App will either say the 2 ingredients do or don't produce selected potion. Explain how this debunks theory or demonstrate a new conflict between two theories.
+    \item If you failed to debunk lose 1 Reputation. If you debunked a one or more theories, see Consequence of Debunking. Note, if debunking 2 Reputation loss counts as 1 combined loss. If you showed 1 of 2 theories is wrong, but not which one, you have demonstrated a conflict. Gain 2 Reputation and mark both theories with conflict tokens.
+\end{enumerateCustom}
+
+\subsubsection*{Theories in Conflict}
+Seals no longer count for conferences, grants, and top alchemist award. No one can endorse a theory in conflict.
+
+\subsubsection*{Invalid Demonstrations}
+Resulting potion during debunk should be able to debunk at least one theory or demonstrate a new two-theory conflict. If neither, lose 1 reputation. You can't demonstrate an existing conflict. If you do, this counts as an invalid demonstration.
+
+\subsubsection*{Consequences of Debunking}
+\begin{enumerateCustom}
+    \item Gain 2 Reputation.
+    \item Remove Alchemical token from theory board.
+    \item Reveal each seal that was on the theory.
+    \item Player with unstarred seal lose no points if color matches the aspect used to debunk theory.
+    \item Player with unstarred seal hedging against different color or starred seal lose 5 Reputation.
+    \item Remove all seals on theory from play.
+    \item If you have cube on Publish Theory space, you may immediate publish.
+\end{enumerateCustom}
+
+\subsubsection*{Immediate Publication}
+You may immediate publish after debunking a theory if have a cube on the Publish Theory space and
+\begin{enumerateCustom}
+    \item the new theory is about the ingredient in the theory you just debunked.
+    \item the new theory involves the alchemical token from the theory you just debunked.
+\end{enumerateCustom}
+
+\section*{Experiments}
+\begin{enumerateCustom}
+    \item Select 2 ingredient cards from hand and scan them.
+    \item Show resulting potion to other players.
+    \item Mark results triangle with appropriate potion token.
+    \item Put corresponding result token on player board to remind other players what you've made.
+    \item Discard used ingredients face down.
+\end{enumerateCustom}
+
+\section*{Effects of Reputation}
+\begin{itemizeCustom}
+    \item Green Zone (14 - 17): You get 1 extra smiley face added to bid. When you lose reputation, you lose 1 additional point.
+    \item Blue Zone (18 or More): You get 1 extra smiley and charge 1 extra gold for any potion selling guarantee. When you lose reputation, you lose 2 additional points.
+    \item Red Zone (6 or Less): You must charge 1 fewer for any potion selling guarantee. When you lose reputation, you lose 1 less point.
+\end{itemizeCustom}
+
+
+\section*{Grants}
+You win a grant if you have seals on theories about 2 of the ingredients depicted on the grant tile. Take tile and place on Player Board face down. Take 2 Gold from bank. After the first grant you must have seals on theories about 3 of the ingredients. If you qualify for 2 grants at once, choose 1 to be your first grant.
+
+\section*{Seals}
+Starred seals offer you victory points at end of game. 5 for gold, 3 for silver. If theory is wrong, you lose points (or reputation via debunking). Unstarred seals are for hedging against certain aspect. If you are proven wrong about that aspect of the ingredient's alchemical, you suffer no penalty.
+
+\section*{Final Scoring}
+\begin{enumerateCustom}
+    \item Reputation Points == Victory Points
+    \item Score Artifacts. Special case, \textbf{Magic Mirror} must be scored before other artifacts and grants. \textbf{Wisdom Idol} is scored after Big Revelation.
+    \item Score victory points for grants.
+    \item Exchange each Favor card in hand for 2 Gold.
+    \item Get 1 Victory Point per 3 Gold.
+    \item Reveal what alchemicals are associated with what ingredients. For each theory, reveal all seals and score. If theory is correct, gold-starred 5 points, silver-stared 3 points. If theory is incorrect, starred seals and unstarred seals that aren't properly hedged lose 4 points.
+\end{enumerateCustom}
+
+
+\end{multicols*}
+\end{document}
