@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{AquaSphere Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Put 6 sectors of Station together in random order. Place programming Headquarters board nearby.
+    \item Give each player colored pieces and Player Board. Randomly determine start player.
+    \item Deal 1 random Base Lab to each player. The letter indicates players Starting Sector.
+    \item Organize Bots and Submarines on Player Board spaces (white squares/rectangles).
+    \item Set out supply of Crystals, Octopods, and Time Markers. Shuffle and stack face down Lab Expansions and red Research Cards.
+\end{enumerateCustom}
+
+\subsection*{Headquarters Board}
+\begin{enumerateCustom}
+    \item Shuffle Program Cards, place 4 next to Headquarters. Return rest to box.
+    \item Per top Program Card, place Programming Tiles on Headquarters. Return card to box.
+    \item 1st player then clockwise, place 1 Bot on Play Order Track (\# spaces on right of Headquarters) to indicate player order.
+    \item Place 1 Counter cube from each player on "0" and "0+" spaces of Knowledge Track.
+    \item Place Engineer from each player on bottom Starting Space of Programming Section.
+\end{enumerateCustom}
+
+\subsection*{Station}
+\begin{enumerateCustom}
+    \item Take 4 Center Tiles for player count. Order 5, 4, 3, 2 with random rotational orientation.
+    \item Take Setup Overview Card for player Count. Use top section to populate Starting Sectors and bottom rows to populate remaining sectors (draw random Base Lab to determine order).
+    \item 
+        \begin{itemizeCustom}
+            \item In Starting Sector, place 1 Octopod on purple area, 1 Crystal on black area, left-most Submarine from Player Board in blue area space depicting 1 Time Marker, 1 Scientist somewhere in blue area, 4 Time Markers on yellow area.
+            \item 2 Player Game: Last 2 Sectors have neutral Submarine places on blue space depicting 1 Time Marker.
+            \item 3 Player Game: Place neutral Bot in Loading Station (center of tile) in 3 remaining Sectors. In last sector, place neutral Submarine in space depicting 1 Time Marker.
+        \end{itemizeCustom}
+    \item Place 1 Research Card and 1 Lab Expansion next to relevant colored areas of each Sector.
+    \item Each player gets 3 Time Markers if Starting Sector has a "0" time lock, otherwise 4 Time Markers.
+    \item Place remaining player bot on Programming Symbol of Player Board as indicated by color of white area of Starting Sector.
+\end{enumerateCustom}
+
+\section*{Game Overview}
+\begin{itemizeCustom}
+    \item Game is played over 4 rounds.
+    \item Beginning with Start Player, take turns in order of Play Order Track until everyone passes.
+    \item Do intermediate / end-of-round scoring. Prepare for next round.
+    \item After 4th intermediate scoring, Final Scoring is done. Winner is person with most Knowledge Points.
+\end{itemizeCustom}
+
+\section*{Player Turn}
+On your turn, choose 1 of the following 3 options:
+
+\subsection*{A: Program a Bot}
+    When programming a Bot, take next available Bot from supply and place on available Program Symbol on Player Board. \textbf{Remember, } you can't have more than 2 programmed Bots at a time. At any time during your turn you may return a programmed Bot to your supply and receive 2 Time Markers. Two ways to program:
+\begin{enumerateCustom}
+    \item Move Engineer in Headquarters 1 space forward along Arrow. The ending space's Programming Tile is what your bot is Programmed for.
+    \item Once per round, you may spend 3 Time Markers to place Bot on any unoccupied Program Symbol. Place one of the paid time markers on the Time Marker symbol in the top right of Player Board to indicate you've used this option.
+\end{enumerateCustom}
+
+\subsection*{B: Carry Out Action with Programmed Bot}
+Perform the following steps in order:
+
+\begin{enumerateCustom}
+    \item (Optional) Move your Scientist to another Sector, paying depicted Time Markers for each Lock the Scientist moves through.
+    \item Place Scientist on one of colored Action Areas for which you have a programmed Bot.
+    \item Place Bot from corresponding Program Symbol to Control Space of Sector (middle of tile), moving an occupying bot into the Loading Station of the Sector. If the number of Bots in the Loading Station exceeds allowed amount (2/4/5 for 2/3/4 players), each player must return all but one Bot from there to their supply.
+    \item You  may now carry out the action.
+\end{enumerateCustom}
+
+\subsection*{C: Pass}
+Move Engineer in Headquarters onto next free space of Pass Order Track, ending your round.
+
+\section*{Actions}
+\subsection*{Expanding the Lab}
+Take the topmost Lab Expansion from the Sector and add it to your Base Lab. If the Lab Expansion shows letters, you may place 1 Bot on the Control Space of the corresponding Sectors. If you've completed your Lab you can't take this Action.
+
+\subsection*{Take Time Markers}
+Take the Time Markers from the space and add to Player Supply. If you didn't get at least 2 Time Markers, take additional ones from Supply until you get 2. If you can't take all Markers (due to lab limit) leave remaining markers on space.
+
+\subsection*{Take Crystals}
+Take as many Crystals from space as you can hold in personal supply. Leave excess in Sector.
+
+\subsection*{Catch Octopods}
+Catch as many Octopods as Lab indicates and return to supply. You get 1/3/6/10/15/21 Knowledge for catching 1/2/3/4/5/$>$5 Octopods.
+
+\subsection*{Place a Submarine}
+You may only have 1 Submarine in each Sector. If you haven't placed one in the sector:
+\begin{enumerateCustom}
+    \item Take next Submarine and place on next available Submarine Space in Sector.
+    \item Pay indicated number of time markers on space. If can't pay, you can't play Sub!
+    \item Get Knowledge points as depicted on Center Tile of Station.
+\end{enumerateCustom}
+
+\subsection*{Take a Research Card}
+Take the topmost Research Card from the Sector. Get Knowledge Points as depicted on Center Tile.
+
+\subsection*{Program a Bot}
+Take next Bot from your supply and place on Program Symbol of Player Board that matches depicted symbol / color in white Action Area.
+
+\section*{Intermediate Scoring}
+\subsection*{Time Markers}
+Get 1 Time Marker per Submarine deployed in Station. Return Time Marker from top-right corner of Player Board to supply if present.
+
+\subsection*{Research Cards}
+Any Research Card with "pause" symbol may now be used.
+
+\subsection*{Knowledge Points}
+Add up total number of Knowledge Points for each player individually before adjusting Counters on track. Remember, to cross a red line you must pay 1 Crystal. If you have no Crystals, you may choose to return a Bot from Program Symbols to your supply (without receiving Time Markers) instead. If you don't do either, you lost any points beyond that space. Note, you can't fall back past a red line either if you lose points.
+
+\begin{enumerateCustom}
+    \item Majority on 6 Control Spaces: Player with most Bots on Control Spaces gets 6 KP. If tied, each player gets 3 KP.
+    \item Bots in Play: Get highest exposed KP in a column with no Submarine.
+    \item Crystals in Supply: 1/2/3/4/5/$>$5 Crystals gets 1/3/6/10/15/21 KP.
+    \item Negative Points for Leftover Octopods: In each sector with one of your Bots on Control Space, lose 1/3/6/10/15/21 KP for 1/2/3/4/5/$>$5 Octopods left in Sector.
+\end{enumerateCustom}
+
+\section*{Preparing the Next Round}
+\begin{itemizeCustom}
+    \item Draw 6 Research Card and place one in each Sector (over existing cards if needed)
+    \item Draw 6 Lab Expansions and place one in each Sector (over existing if needed)
+    \item Place additional components in sectors and indicated on topmost Center Tile.
+        \begin{itemizeCustom}
+            \item Remove all existing Time Markers and place indicated amount in sectors.
+            \item Add Crystals to existing ones, if any.
+            \item Add Octopods to existing ones, if any
+            \item 2/3 Player, places neutral Submarine. You can't have more than 1 Sub of each color in a Sector. If you can't place neutral Sub due to this, place it in the next legal Sector in clockwise order.
+            \item Discard topmost Center tile.
+        \end{itemizeCustom}
+    \item Rearrange tokens on Play Order Track to match the Pass Order Track. This is the new play order for the round. Return Engineers to Starting Space. Rearrange Programming Tiles as indicated by topmost Program Card and then discard it so next one is visible.
+\end{itemizeCustom}
+
+\section*{Final Scoring}
+During Final Scoring you don't have to pay Crystals for crossing red lines.
+
+\begin{itemizeCustom}
+    \item KP for each different letter in Lab: 1/2/3/4/5/6 Letters gets 1/3/6/10/15/21 KP
+    \item 1 KP per Time Marker
+    \item 5 KP if all 6 Submarines are in the Station.
+    \item 5 KP for a completed Lab (5 Lab Expansions)
+\end{itemizeCustom}
+
+\end{multicols*}
+\end{document}
