@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Spirit Island Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+\begin{enumerateCustom}
+    \item Set out Invader Board. Place 4 Fear markers per player into Fear Pool.
+    \item Shuffle Fear Cards and put 9 on Fear Deck Space. Place "Terror Level 3" divider 3 cards from bottom and "Terror Level 2" divider 3 cards above that.
+    \item Make Invader Deck and put on Invader Board's Explore Action Space. Shuffle each stage of Invader cards. Put 5 Stage III, then 4 Stage II on top, and then 3 Stage 1 on top to form deck. Return rest to box.
+    \item Take random Blight Card and place on Blight Space, "Healthy Island" side up w/o looking at back.
+    \item Randomly pick one Island Board per player and arrange by player count (see pg. 6)
+    \item Place Invaders, Dahan, and Blight on board as indicated by icons in each land.
+    \item Shuffle Minor and Major Power Decks and set out by board.
+    \item Give each player Spirit Presence (disks) and Single-Turn Effect Markers of one color. Pick Spirit and take its four Unique Power Cards to form starting hand.
+    \item Each player starts on different Island Board. Setup per instructions on back of Spirit Panel. Place remaining Presence onto dashed circles on Presence Tracks (leftmost numbers with solid stay uncovered).
+    \item Invaders take initial Action. Reveal top card of Invader Deck and Explore in that land type. Place card face-up in "Build" space.
+\end{enumerateCustom}
+
+\section*{Sequence of Play}
+Each turn has the following phases. Players play simultaneously in each phase, conferring as they wish.
+\begin{enumerateCustom}
+    \item Spirit Phase
+    \item Fast Power Phase
+    \item Invader Phase
+    \item Slow Power Phase
+    \item Time Passes
+\end{enumerateCustom}
+
+\subsection*{Spirit Phase}
+Do the following in order:
+\begin{enumerateCustom}
+    \item Grow: Choose one option (unless stated otherwise) next to "Growth" at upper-right of Spirit Panel. Each section is single choice. Must do everything shown but can choose order.
+    \item Gain Energy: Gain amount of Energy equal to highest uncovered number on Energy Presence Track.
+    \item Play $+$ Pay for Power Cards: Select Power Cards (Fast \& Slow) that you'll use this turn. Max \# of Power Cards you can play each turn is highest uncovered number on Card Plays Presence Track. Immediately pay Energy for all Power Cards, even Slow ones. Immediately gain all Elements from played Power Cards, even on Slow ones. Don't resolve effects on cards yet.
+\end{enumerateCustom}
+
+\subsection*{Fast Power Phase}
+Resolve Fast Powers (Bird Icon). When timing matters, players resolve in whatever order they want, as long as no Power interrupts another partway through. Players may skip the entire Power's text effect.
+
+\subsection*{Invader Phase}
+\begin{enumerateCustom}
+    \item If Blight Card on "Blighted Island", follow instructions there.
+    \item If Fear Cards have been earned, resolve cards in order earned. Discard to Fear Discard Space. Use effect only next to current Terror Level.
+    \item Ravage: If card in Ravage Action Space, Invaders deal 1/2/3 damage per Explorer/Town/City. Reduce damage by any Defend powers.
+        \begin{itemizeCustom}
+            \item Damage Land: If 2 or more, add Blight to land
+            \item Fight Dahan: Every 2 damage destroys 1 Dahan. Turn Dahan over to show its damaged if it takes 1 damage. Must kill as efficiently as possible.
+            \item Dahan Fight Back: Each Dahan deals 2 damage to invaders.
+        \end{itemizeCustom}
+    \item Build: If card in Build Action Space, for each land where Invader is present, build a City or Town. If land has more Towns than Cities, add a City. Otherwise, a Town.
+    \item Explore: Flip top card of Invader Deck. Add Explorer if land is adjacent to or contains a City/Town or adjacent to Coast.
+    \item Slide Invader cards down track 1 step.
+\end{enumerateCustom}
+
+\subsection*{Slow Power Phase}
+Resolve Slow Powers (Turtle Icon)
+
+\subsection*{Time Passes}
+Discard all played Power Cards to personal discard. All Elements go away. All partial damage done goes away.
+
+\section*{Victory and Defeat}
+You win immediately if you meet the conditions listed on the current Terror Level card. You lose if:
+\begin{itemizeCustom}
+    \item Too Much Blight: Last Blight comes off Blight card, you follow instructions there, which is often "you lose."
+    \item Spirit is Destroyed by have no Presence left on the island.
+    \item Time Runs Out: You draw an Invader Card (to Explore) but the Deck is empty
+\end{itemizeCustom}
+
+\end{multicols*}
+\end{document}
