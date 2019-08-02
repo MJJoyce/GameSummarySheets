@@ -1,0 +1,227 @@
+\documentclass[10pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Cerebria: The Inside World Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+\subsection*{Board Setup}
+\begin{itemizeCustom}
+    \item Setup Origin and put 7 Willpower in each sphere.
+    \item Create supply near board of Willpower and each team's Essence.
+    \item Put each team's point counter on "0"
+    \item Shuffle Common Aspirations and deal all face up in row.
+\end{itemizeCustom}
+
+\subsection*{Player Setup}
+\begin{itemizeCustom}
+    \item Give each team their team board and determine side both teams will use.
+    \item Place 3 Ambition tokens on team board inactive side up.
+    \item Shuffle team's Hidden Ambitions and put face down on team board. Look at top card. Can't ever match current Common Aspiration.
+    \item Give each team Fragments, Intensity tokens, and Vibe tokens.
+    \item Each player picks Spirit and takes figure and board. Each team should use same Spirit board sides.
+    \item Each player builds Emotion deck. Top card of each emotion deck is always face up.
+    \item Set out deck of Strong Emotions. Give each team their starting emotions (Bleakness / Brightness)
+    \item Place Action Tracker token on Spirit board.
+    \item Place 2 Essence and 4 Willpower from general supply onto each Player board.
+\end{itemizeCustom}
+
+\subsection*{Final Steps}
+\begin{itemizeCustom}
+    \item Take players' Order markers and randomly determine order. One team 1st/3rd, other team 2nd/4th.
+    \item Starting player gets 2 more Willpower but flips over Action Tracker token.
+    \item In player order, place Spirits and Starting Emotions
+        \begin{enumerateCustom}
+            \item Place Spirit on empty Frontier space.
+            \item Place Starting Emotion into adjacent Realm emotion spot.
+            \item Place 1 Essence from general supply onto Emotion.
+        \end{enumerateCustom}
+    \item Determine Realm / Frontier control
+    \item Draw 2 emotion cards each. In player order, place 4 wild Vibe tokens on Spirit Actions.
+\end{itemizeCustom}
+
+\section*{Goal of the Game}
+    Take control of Cerebria for 1 of 2 opposing forces, Spirit or Gloom. Score points by completing Intentions, meeting requirements of Aspirations (Common and Hidden) which are checked during Revelations, and build Cerebria's Identity by adding your force's Fragments to the Origin.
+
+\section*{Gameplay}
+Players take turns in player order.
+
+\begin{itemizeCustom}
+    \item Players take 3 Actions. May take same Action more than once.
+    \item 10 possible Actions, 5 Spirit Actions and 5 Realm Actions
+    \item Teams share 3 Ambition Abilities which may be used before / after any Action, if you have Ambition available. Each ability may only be used once per turn.
+    \item May use Absorb Ability once per turn.
+    \item At end of turn: Flip 1 Ambition token to "available" side \textbf{OR} draw 2 Emotion cards. If you have 0 Willpower, gain 1. Flip Action Tracker token to show Absorb Ability is available again.
+\end{itemizeCustom}
+
+\section*{End Game}
+Game can end in 3 ways. Active player may still finish their turn if any of these occurs.
+\begin{enumerateCustom}
+    \item \textbf{Last Common Aspiration scored:} Game ends if it's not possible to proceed to new Common Aspiration after Revelation.
+    \item \textbf{Team would score Fragment during Revelation but has none of needed type remaining:} Team adds Capping Fragment to Identity after all other Fragments, including Fortresses, have been added. If both teams would add Capping fragment, team that triggered Revelation adds theirs and other team scores 4 points.
+    \item \textbf{Team acquires $\ge$ 20 points on Wheel of Intentions.}
+\end{enumerateCustom}
+
+\subsection*{Final Scoring}
+Add points for Fragments in Identity to points on Wheel of Intentions. Small/Large/Capping Fragment is 3/5/4 points. If tied, Capping Fragment team wins. If no Capping Fragment, game ends in tie with Cerebria in complete balance.
+
+\section*{Spirit Actions}
+Spirit action with Vibe token on left-most slot is unlocked. 
+
+\subsection*{Place Vibe Token}
+After declaring action, but prior to performing, \textbf{may} place \textbf{one} Vibe token on that Action.
+\begin{enumerateCustom}
+    \item Discard Emotion card from hand.
+    \item From supply, take Vibe token matching Vibe on discarded Emotion.
+    \item If action isn't unlocked, place on left-most slot. Otherwise, place on any of 3 upgrades.
+\end{enumerateCustom}
+May never have two Vibe tokens of same color in Spirit Action row. Wild Vibe tokens don't limit Vibe token placement.
+
+\subsection*{Upgrades}
+Upgrade use is always optional. May use each upgrade at most once per action. All actions 3rd upgrade, Determination, reduces cost by 1 Willpower.
+
+\subsection*{Move}
+1 Willpower: Move 1 space along track. Don't end on space with opposing Spirit.
+\begin{itemizeCustom}
+    \item Haste: $+$1 Willpower: Move $+$1 space. May pass through opposing Spirit space
+    \item Surmount: $+$1 Willpower: May end on opposing Spirit space
+\end{itemizeCustom}
+
+\subsection*{Invoke Emotion}
+2 Willpower: Play Emotion from hand to adjacent empty slot. Place Essence from Spirit board onto shaded spaces. Recalculate Realm/Frontier control.
+\begin{itemizeCustom}
+    \item Bolster: $+$1 Ambition: Add 1 additional Essence to Emotion from supply.
+    \item Inner Force: $+$2 Willpower: Take required Essence from supply instead.
+\end{itemizeCustom}
+
+\subsection*{Quell Emotion}
+2 Willpower $+$ 1 Ambition $+$ Reveal card with matching Vibe: Remove rightmost Essence from adjacent opposing Emotion. If no Essence left after, discard Emotion.
+\begin{itemizeCustom}
+    \item Subdue: $+$2 Willpower: Remove 1 additional Essence
+    \item Extinguish: $+$1 Willpower: Don't need to reveal card. Can do action with empty hand.
+\end{itemizeCustom}
+
+\subsection*{Fortify}
+3 Willpower $+$ Realm not controlled by opponent $+$ Fortress location is empty $+$ adjacent to Fortress location (pg 17): Put unused Minor Fragment on Fortress location. Put $+$1 Intensity token in Realm. Recalculate Realm control.
+\begin{itemizeCustom}
+    \item Exalt: $+$1 Ambition, team has Minor Fragment on Fortress location: Replace Minor with Major Fragment. Change to $+$2 Intensity Token. Recalculate Realm control.
+    \item Raze: $+$1 Ambition, $+$1 Willpower, adjacent to enemy Fortress: Remove enemy Minor Fragment \textbf{OR} downgrade Major to Minor. Update Token / Realm control. \textbf{Get $+$1 Action}
+\end{itemizeCustom}
+
+\subsection*{Empower Emotion}
+3 Willpower $+$ Spirit adjacent to Emotion $+$ Emotion's Essence $\ge$ Empower Threshold: Replace with counterpart from Strong Emotion Deck. Move Essence to new Emotion. Discard Mild Emotion and any tokens on it.
+\begin{itemizeCustom}
+    \item Channeled Emotion: $+$1 Ambition: Before Empowering, add 1 Essence from supply
+    \item Emotional Outburst: $+$1 Willpower: Empower Emotion anywhere on board instead of adjacent
+\end{itemizeCustom}
+
+\section*{Realm Actions}
+Each Realm has an associated Action. All are available regardless of Spirit location. Cost is Willpower below name. Controlling  Realm reduces action cost by 1 Willpower.
+
+\begin{itemizeCustom}
+    \item \textbf{Valley of Motives:} 1 Willpower: Gain 4 Willpower from supply
+    \item \textbf{Cradle of Senses:} 1 Willpower: Draw top Emotion card. $+$2 Willpower (repeatable): Draw new top Emotion Card.
+    \item \textbf{Network of Thoughts:} 2 Willpower: Move any of your team's Emotions to empty spot adjacent to Spirit.
+    \item \textbf{Land of Desires:} 1 Willpower: Add 1 Essence from Spirit board to adjacent Emotion. $+$X Willpower: Add X Essence from Spirit board to same Emotion.
+    \item \textbf{Willow of Values:} 1 Willpower: Exchange X Willpower for X Essence from supply.
+\end{itemizeCustom}
+
+\section*{Abilities}
+Abilities may be used before or after any Action. Using Ability doesn't count as Action. Can't use same Ability twice in one turn.
+
+\subsection*{Ambition Abilities}
+Depicted on team board.
+
+\begin{itemizeCustom}
+    \item \textbf{Add Vibe token:} Add any color Vibe token to Spirit Action. Must still not match existing Vibe tokens in row.
+    \item \textbf{Rotate Origin:} Rotate Origin 1 Realm clockwise
+    \item \textbf{Additional Action:} Gain 1 additional Action.
+\end{itemizeCustom}
+
+\subsection*{Absorb Ability}
+\begin{enumerateCustom}
+    \item Flip action tracker to inactive side
+    \item Choose adjacent Origin Sphere (pg 22). Realm: Sphere directly in front. Frontier: 2 Spheres in front.
+    \item Take Willpower: 2 Willpower $+$ 1 for adjacent friendly controlled Frontier(s). Realm: 2 adjacent Frontiers. Frontier: Only that Frontier
+    \item Receive bonus listed on Sphere (pg. 22)
+    \item If Sphere is empty, resolve Revelation
+    \item Rotate Origin clockwise once
+\end{enumerateCustom}
+
+\section*{Revelations}
+Revelations triggered immediately once a Sphere is emptied by Spirit's Absorb Ability.
+\begin{enumerateCustom}
+    \item Reveal Hidden Aspirations. Determine if team's accomplished Hidden or Common Aspirations.
+    \item If completed 1/2 Aspirations add Minor/Major Fragment. If no Fragment of type needed, trigger end of game. They will add Capping Fragment later.
+    \item Turn old Common Aspiration face-down. If one team added Major Fragment, other team must pick face-up Aspiration and remove from game.
+    \item Left-most face-up is new Common Aspiration.
+    \item Each team returns Hidden Aspiration to box. If team accomplished no Aspiration this Revelation look at top 3, pick 1, shuffle rest. Otherwise, check and ensure new Hidden Aspiration doesn't match Common.
+    \item If empty Sphere's adjacent Fortress location has a Fragment built or Exalted earlier than the current turn, add Fragment to Identity. Remove Intensity token / check Realm control.
+    \item Put 7 Willpower from supply onto emptied Sphere.
+    \item Resume current player's turn
+\end{enumerateCustom}
+
+\section*{Misc.}
+\textbf{Adjacency:} Pg. 16. On Frontier, only Emotion on Frontier. In Realm, two Emotions by space.
+
+\textbf{Intentions:} Gain you points. Defined on pg. 30
+
+\end{multicols*}
+\end{document}
