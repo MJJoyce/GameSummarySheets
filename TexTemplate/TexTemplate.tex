@@ -6,10 +6,10 @@
 % Used to reduce the spacing around section headers and titles.
 % Format title headers by adjusting font size
 % Set the spacing on all sides of the title to 0
-\usepackage[compact]{titlesec}
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
 \titlespacing*{\section}{0pt}{*0}{0pt}
 \titlespacing*{\subsection}{0pt}{*0}{0pt}
 \titlespacing*{\subsubsection}{0pt}{*0}{0pt}
