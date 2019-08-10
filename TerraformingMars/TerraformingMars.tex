@@ -1,0 +1,188 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Terraforming Mars Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+    \begin{enumerateCustom}
+        \item Set out main board. Give each player a player mat and all pieces of one color.
+        \item Players put marker on 20 of TR track and markers on 1 space of each track.
+        \item Place white cube on start space of Generation Track (1), Oxygen (0\%), and Temperature (-30\%).
+        \item Place 9 ocean tiles on tile space.
+        \item Shuffle Project and Corporation cards. Deal each player 2 Corporations (or 1 Basic Corporation) and 10 Project cards.
+        \item Determine start player
+        \item Each player picks 1 Corporation and any number of the 10 Project cards to keep. Basic Corporations keep all 10.
+        \item In player order, reveal chosen Corporation and pay 3 \$ per kept Project card (Basic Corporations pay nothing). Get any production or resources mentioned on Corporation card. Discard remaining Project cards. \textbf{Cards are always discarded face down}
+        \item Set out any remaining tiles and resource cubes near board.
+    \end{enumerateCustom}
+
+\section*{Goal of the Game}
+
+\section*{Gameplay}
+The game is played over multiple Generations each of which consists of 4 Phases.
+
+    \subsection*{Player Order Phase}
+    Rotate first player marker clockwise and shift Generation marker up 1. Skip this during first generation.
+
+    \subsection*{Research Phase}
+    Each player draws 4 Project cards. Keep 0 to 4 of these, paying 3 \$ per card kept. Discard remaining. \textbf{There is no hand limit}. Skip this during first generation.
+
+    \subsection*{Action Phase}
+    Players take 1 or 2 actions or pass. Play continues until all players have passed. Actions may be combined in any way. Once you pass you may not take any more actions this Generation.
+
+    \subsection*{Production Phase}
+    Simultaneously, each player
+    \begin{enumerateCustom}
+        \item Convert energy to heat
+        \item Receive all generated resource and place in corresponding boxes.
+        \item Remove player markers from used action cards
+    \end{enumerateCustom}
+
+\section*{Actions}
+    \subsection*{Play a Card}
+    Must be able to meet requirements (top-left corner) and be able to perform effects on card except:
+    \begin{itemizeCustom}
+        \item May play card that raises global parameter that is maxed
+        \item May play card that adds resources you can't collect
+        \item May play card that removes resources for any player (red-bordered resource icon) if you can't or don't wish to. \textbf{Note}, this is the same as red-bordered \textbf{production} icons which must be met.
+    \end{itemizeCustom}
+
+    Pay cards cost and then perform immediate effects. Place the card appropriately by type. Events (red) are discarded to personal pile face down. Automated (green) place face-up in stack with top row visible. Active (blue) place face-up with top panel visible.
+
+    \subsection*{Use Standard Project}
+    Standard projects on board are always available to players. Cost is shown on left, result on right.
+    \begin{enumerateCustom}
+        \item Sell Patents: Discard 1+ cards from hand and gain 1 \$ per 
+        \item Power Plant: Increase energy production
+        \item Asteroid: Increase temperature 1 step
+        \item Aquifer: Place ocean tile
+        \item Greenery: Place and claim greenery tile
+        \item City: Place and claim a city tile. Increase \$ production 1 step
+    \end{enumerateCustom}
+
+    \subsection*{Claim a Milestone}
+    If criteria is met, pay 8 \$ and claim with marker. 3 of 5 Milestones may be claimed, each by 1 player only. Worth 5 VP at end of game. Requirements:
+    \begin{itemizeCustom}
+        \item Terraformer: Have terraform rating $\ge$ 35
+        \item Mayor: Own $\ge$ 3 city tiles
+        \item Gardener: Own $\ge$ 3 greenery tiles
+        \item Builder: Have $\ge$ 8 building tags in play
+        \item Planner: Have $\ge$ 16 cards in hand when claiming
+    \end{itemizeCustom}
+
+    \subsection*{Fund an Award}
+    Pay cost (1/2/3 claimed costs 8/14/20 \$) and claim with marker. 3 of 5 Funds may be claimed, each by 1 player only. Each award is checked in final scoring. 5/2 VP go to 1st/2nd place in category. Ties result in both players getting points.
+    \begin{itemizeCustom}
+        \item Landlord: Own most tiles in play
+        \item Banker: Have highest \$ production
+        \item Scientist: Have most science tags in play
+        \item Thermalist: Have the most heat resource cubes
+        \item Miner: Have most steal and titanium resource cubes
+    \end{itemizeCustom}
+
+    \subsection*{Use Action on Blue Card}
+    Each action on a blue or corporation card (indicated by red arrow) may be used once \textbf{per generation}. Pay any cost stated on left, get right side. Place player marker on card to indicate use this generation.
+
+    \subsection*{Convert Plants to Greenery Tile}
+    Spend 8 plant resources to place a greenery tile following normal rules.
+
+    \subsection*{Convert Heat to Temperature Increase}
+    Spend 8 heat resource to increase temperature by 1.
+
+\section*{End Game}
+The game ends at the end of the current generation when 3 global parameters have reached their goals. Final scoring:
+\begin{enumerateCustom}
+    \item TR: Move score marker from your TR marker onward.
+    \item Awards: Give leader +5 VP and runner-up +2 VP. Tied player get total points for level.
+    \item Milestones: +5 VP per claimed Milestone
+    \item Game Board: Each greenery tile is +1 VP. Each city is +1 VP per adjacent greenery tile (regardless of ownership).
+    \item Cards: Count VPs on all played cards.
+\end{enumerateCustom}
+Winner is highest score. Ties broken by player with most \$.
+
+\section*{Tiles}
+When placing a tile, receive placement bonus printed on tile area. See rules for each tile type.
+\subsection*{Ocean}
+Must be placed on a reserved ocean space. Increase TR by 1. Oceans provide 2 \$ bonus when tile is placed next to it.
+
+\subsection*{Greenery}
+If possible, must be placed adjacent to tile you own. If you can't, you place it on any available area. Place marker on tile. Increase oxygen level by 1, if possible, then increase TR by 1. If can't increase oxygen level don't increase TR.
+
+\subsection*{City}
+May not be placed adjacent to another city. Place player marker on tile.
+
+\subsection*{Special}
+Some cards allow placement of these tiles. See specific cards for rules. Place player marker on tile.
+
+\section*{Tags}
+Tags categories cards and can affect or be affected by other cards or the player board. Building (brown) and Space (Black) are also shown on player board. Steel may be used to pay for Buildings (1 = 2 \$) and Titanium may be used to pay for Space (1 = 3 \$).
+
+\end{multicols*}
+\end{document}
