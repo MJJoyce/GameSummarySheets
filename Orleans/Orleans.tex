@@ -1,0 +1,180 @@
+\documentclass[8pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Orleans Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+    \begin{enumerateCustom}
+        \item Give each player a player board, matching color tokens and bag, and 5 coins.
+        \item Set out game board and Beneficial Deeds board. Put coins nearby. Pick start player.
+        \item Stack Technology Tiles (cog) on board.
+        \item Remove Pilgrimage Tile (lighter hue) from Hour Glass tiles. Place shuffled stack on board.
+        \item Place 1 marker from each player on first space of Character and Development tracks.
+        \item Sort Character Tiles by profession and place on appropriate buildings near tracks.
+        \item Place 13 Citizen Tiles on marked spaces on boards. Put remaining near board.
+        \item Sort Place tiles by Roman numeral backs. Place shuffled stacks near board.
+        \item Shuffle Goods Tiles (food / textiles) and place face up on Road and Waterway Spaces. Sort remaining by type and place face up on appropriate Goods Market spaces (left side of board)
+        \item Place each players Merchant Meeple on Orleans.
+        \item See Setup instructions for 2 or 3 player changes.
+    \end{enumerateCustom}
+
+\section*{Goal of the Game}
+You are trying to achieve dominance in various areas in medieval France. You will get goods, coins, and victory points via production, trade, development, and by committing to the common good.
+
+\section*{Game Play}
+The game is played over 18 rounds comprised of 7 phases.
+
+    \subsection*{Phase 1: Hour Glass}
+    Start player reveals topmost Hour Glass Tile. Game ends when last tile is drawn. Each tile introduces an event affecting the current round. Resolve these in Phase 6 (except for Pilgrimage).
+
+    \subsection*{Phase 2: Census}
+    Check Farmers Track. Person in lead receives 1 coin. Player in back loses 1 coin. If either is tied, do not lose/gain coin.
+    
+    \subsection*{Phase 3: Followers}
+    Players draw Character Tiles from bag $\le$ number indicated by marker on Knights Track. Place drawn tiles on Market Spaces of player board. Can't drawn more tiles than can fit on player board.
+
+    \subsection*{Phase 4: Planning}
+    Use Character Tiles from your Market to activate Actions in Places. May leave Characters on Market for later use. Place required Characters on Action spaces of Place to activate it. Activated Places may be used during the following or future Action Phase. Not required to place all required tiles during same Planning Phase.
+    
+    \subsection*{Phase 5: Action}
+    May carry out actions of activated Places. In clockwise order, players carry out 1 action or pass. If you pass, you're out of this round. Remove Character tiles (but not Technology Tiles) from action after playing action.
+
+    \subsection*{Phase 6: Event}
+    Resolve the event shown on Hour Glass Tile
+
+    \subsection*{Phase 7: Start Player}
+    Pass Start Player \textbf{counter clockwise}.
+
+\section*{Actions / Places}
+    \subsection*{Farm House}
+    Take Farmer Tile from board and put in bag. Advance marker on Farmers track. Receive depicted good.
+
+    \subsection*{Village}
+    Do one of:
+    \begin{itemizeCustom}
+        \item \textbf{Boatman:} Take Boatman tile from board and put in bag. Advance marker on Boatmen track. Receive depicted coins or Citizen tile.
+        \item \textbf{Craftsman:} Take Craftsman tile from board and put in bag. Advance marker on Craftsmen track and receive Technology tile. May use Technology tile after passing. Constraints:
+            \begin{itemizeCustom}
+                \item First Technology must replace a farmer
+                \item Subsequent may replace any Character tile other than Monks
+                \item May not place multiple on a given Place
+                \item May not use on Place which requires single Character tile
+                \item May not move after placed
+            \end{itemizeCustom}
+        \item \textbf{Trader:} Take Trader tile from board and put in bag. Advance marker on Trader track. Take 1 Place tile (track shows which type can be chosen) from supply stacks. Place tile next to Player board. This provides a new space that can be used. Players may look through stack and pick tile they want.
+    \end{itemizeCustom}
+
+    \subsection*{University}
+    Take Scholar tile from board and put in bag. Advance marker on Scholars track and receive depicted Development points. For each Development point received in game, advance marker on Development Track.
+
+    \subsection*{Castle}
+    Take Knight tile from board and put in bag. Advance marker on Knights track.
+
+    \subsection*{Monastery}
+    Take Monk tile form board and put in bag. Monks can be used instead of any other Character tile.
+
+    \subsection*{Ship}
+    Move Merchant meeple along Waterway to adjacent town. Collect Goods tile (only one if multiple) and put on Player board.
+
+    \subsection*{Wagon}
+    Same as Ship but along Road instead.
+
+    \subsection*{Guildhall}
+    Build Trading Station in Merchant meeple's current town. Each town may only have 1 station except Oreleans, which may have 1 from each player.
+    
+    \subsection*{Scriptorium}
+    Receive 1 Development point.
+
+    \subsection*{Town Hall}
+    During Planning Phase, may place 1 or 2 Character tiles in Town Hall. When using Town Hall action, move 1 or both tiles from Town Hall Place to Beneficial Deeds board. Receive depicted reward for each character. Take Citizen tile if Beneficial deed is completed.
+    \begin{itemizeCustom}
+        \item Can't use Monks or "starting" Followers in Town Hall.
+    \end{itemizeCustom}
+
+\section*{Development Track}
+If space shows coins or Citizen tile, take when marker is moved on or past. Spaces indicated Development values (yellow "star") indicate your state of development if marker is on or past space.
+
+\section*{Final Scoring}
+Before scoring, the person with most Trading Stations receives a Citizen tile (none if there's a tie).
+\begin{itemizeCustom}
+    \item Coins are 1 VP each
+    \item Goods:
+        \begin{itemizeCustom}
+            \item Brocade: 5 VP
+            \item Wool: 4 VP
+            \item Wine: 3 VP
+            \item Cheese: 2 VP
+            \item Grain 1 VP
+        \end{itemizeCustom}
+    \item Trading Stations and Citizen Tiles: \(Development Points * (Trading Stations + Citizen Tiles)\)
+\end{itemizeCustom}
+
+\end{multicols*}
+\end{document}
