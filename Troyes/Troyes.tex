@@ -1,0 +1,190 @@
+\documentclass[10pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Troyes Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+    \begin{enumerateCustom}
+        \item Place neutral (gray) meeples, dice, deniers, and VPs beside board.
+        \item Each player receives pieces of one color.
+        \item Place each players disc District Marker on circle in city square.
+        \item Place each players Influence marker disk on 4 space of track.
+        \item Give each player 5 deniers and a randomly selected Character card.
+        \item Players start with 4/5/6 citizen meeples in a 4/3/2 player game. Rest go to general supply.
+        \item Sort Activity cards by color and round number on back. For each color, place 1, 2, and 3 marked cards on appropriate spaces in matching color tracks.
+        \item Form 3 decks of event cards by color back. Number of red cards determines turns in game (6/5/4 cards for 4/3/2 players)
+        \item Determine start player
+        \item Place initial citizen meeples on 3 Palace, Bishopric, and City Hall. Go from start player to last clockwise and then last to start player counter clockwise until all players have placed their citizens.
+        \item Fill remaining citizen spaces with neutral meeples.
+    \end{enumerateCustom}
+
+\section*{Goal of the Game}
+You represent a rich family from the Champagne region of France seeking to gain fame and glory through hiring and managing the military, clergy, and peasants.
+
+\section*{Gameplay}
+The game lasts 6/5/4 rounds for 4/3/2 players. A round is comprised of the following phases.
+
+    \subsection*{Phase 0: Reveal Activity Cards}
+    During the first 3 rounds, for each color, reveal the activity card corresponding to the round number.
+
+    \subsection*{Phase 1: Income and Salaries}
+    Each player receives fixed 10 denier income. Then pay 1 denier to each of their meeples in Bishopric and 2 for each in Palace.
+
+    \subsection*{Phase 2: Assembling the Workforce}
+    Gather dice for each citizen meeple in the 3 primary board locations (Palace: red, Bishopric: white, City Hall: yellow). Roll and move to city square.
+
+    \subsection*{Events}
+    \begin{enumerateCustom}
+        \item Reveal top red Event and place in event queue on board. Reveal second card depending on colored icon (either yellow or white) and add it to the event queue.
+        \item Resolve event cards in order. If player can't totally execute an event, do as much as possible and lose 2 VP.
+        \item Gather and roll black dice as represented on cards. Order by value. 
+        \item In player order, counter highest value black die + optional additional dice with 1 or more of player's dice in their district. Total value of chose player dice must be $\ge$ than black dice. Discard used dice along with black die. If players dice can't beat black die they discard black die without losing dice and lose 2 VP.
+            \begin{itemizeCustom}
+                \item Value of red dice is doubled when countering black dice
+                \item Any combination of player dice can be used
+                \item Player can counter multiple black dice. Highest-valued one pus any others chosen
+                \item Player gains 1 Influence per countered black die
+                \item Influence points can be used prior to countering black dice.
+            \end{itemizeCustom}
+    \end{enumerateCustom}
+
+    \subsection*{Actions}
+    In player order, each player carries out one action or passes. This continues until no more dice are available or everyone passes. 
+    \begin{itemizeCustom}
+        \item Each action requires a group of 1 to 3 of the same color pulled from 1 or more of city squares 5 districts. 
+        \item Dice from other player must be purchased and can't be refused.
+    \end{itemizeCustom}
+
+    \subsection*{End of Round}
+    After everyone passes or no dice are available:
+    \begin{itemizeCustom}
+        \item Players retrieve deniers from their district.
+        \item Meeples lying on buildings return to owners' supply.
+        \item Unused dice return to general supply
+        \item Start player rotates clockwise
+    \end{itemizeCustom}
+
+\section*{Actions}
+    \subsection*{Buying Dice}
+    A die coming from another player's district must be purchased from that player. Can't refuse. Pay the bank for neutral player's dice. Cost depends on number of dice being used for action. 2/4/6 deniers for 1/2/3 dice in action.
+
+    \subsection*{Activate one Activity card from city}
+    Dice must match color in lower-left Activation cost. Number of times effect can be used is dice value divided by Activation cost, rounded down. If no tradesman meeple on card pay denier cost in top-left box and put meeple onto card. Meeple must come from personal supply or any location on board. Put tradesman on free space marked by Influence icon on card. Worth VP at end of game
+    \begin{itemizeCustom}
+        \item Delayed effect cards: Marked with hourglass icon in lower-right. Place cubes defined by activation cost. Each cube can be used during future actions but only 1 cube modification at a time.
+    \end{itemizeCustom}
+
+\subsection*{Construct Cathedral}
+Use 1-3 white dice to work on Cathedral. Place 1 cube per die on same-numbered construction site of Cathedral. Place cubes from bottom up. Gain 1 VP \& Influence for 1 - 3 spaces. Gain 1 VP \& 2 Influence for 4 to 6 spaces.
+
+\subsection*{Combat the Events}
+Use 1-3 dice to combat event threatening the city. Activation cost on card defines:
+\begin{itemizeCustom}
+    \item Type of dice needed
+    \item Number of cubes you place on card. \(dice\_value / number\) rounded down. Place cubes on small banners on card start from top-left. Gain 1 Influence per flag covered.
+\end{itemizeCustom}
+
+Event is countered once all banners are covered by cubes.
+\begin{itemizeCustom}
+    \item Player with most cubes earns large VP. If tie, split total of large/small VP between players. Others get nothing.
+    \item Player with second most earns small VP. If tie, split small VP between players.
+    \item Retrieve cubes to personal supplies.
+    \item Player who places most cubes takes card. If tied, player who placed cubes first on card takes it.
+\end{itemizeCustom}
+
+\subsection*{Place Citizen on Principal Building}
+Always use 1 die. Take one meeple from personal supply or one already on board and place on building. Value indicates where meeple is placed. \textbf{Note,} cannot place meeple if ejected meeple matches color already ejected.
+\begin{itemizeCustom}
+    \item City Hall and Bishopric place on first space of matching row. If row is full, shift meeples one space right. Lay meeple that is pushed out right end of row on building illustration.
+    \item Place meeple goes on matching space. Expel existing meeple and place on illustration.
+\end{itemizeCustom}
+
+\subsection*{Use Agriculture}
+Gain deniers equal to \(dice\_value / 2\)
+
+\section*{Influence}
+Before countering a black die or executing an action you spend influence. More than 1 may be done in any order:
+\begin{itemizeCustom}
+    \item 1 point: reroll 1 die from your district
+    \item 2 points: add citizen from general supply to personal supply
+    \item 4 points: Turn over 1 - 3 dice in your district
+\end{itemizeCustom}
+
+\section*{End of Game}
+In addition to VP tokens gained during the game, each player:
+\begin{itemizeCustom}
+    \item Gains 1 VP per un-countered event card on which their presence is located
+    \item Gains VPs indicated on spaces occupied by their citizens on Activity cards
+    \item Loses 2 VPs for each of 3 cathedra levels on which they have no cubes
+    \item Reveal Character cards and award points to each player per criteria
+\end{itemizeCustom}
+
+\end{multicols*}
+\end{document}
