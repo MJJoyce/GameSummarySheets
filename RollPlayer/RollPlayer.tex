@@ -1,0 +1,176 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Roll Player Summary v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\usepackage{mdframed}
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+    \begin{enumerateCustom}
+        \item Determine first player. In clockwise order, each player chooses Character Sheet and 5 Gold. 3rd player gets +1 gold, 4th gets +2.
+        \item In player order, draw die, take Class card matching color, and choose one of two sides
+        \item Deal each player 1 Backstory and Alignment card
+        \item Give each player matching marker cubes. Place one on center of Alignment card and one on Class card
+        \item Separate Market cards into single and double dot piles. Discard 3/7 cards if playing with 3/2 players. Shuffle and place single-dot on top of double-dot.
+        \item Create Market by dsrawing cardss from Market dseck equal to \# players + 1
+        \item Place Initiative cards in numerical order. Should have \# players + 1
+        \item Place 1 Gold on each Initiative card that is neither first nor last
+        \item In player order, draw starting dice (\# of players + 4)
+        \item Each player rolls start dice and places on Character Sheet.
+            \begin{itemizeCustom}
+                \item Dice must be placed in leftmost empty space
+                \item Attribute Actions are not taken
+                \item Each filled Attribute Row gives 1 Gold
+                \item Draw 2 Gold per Gold Dice drawn
+            \end{itemizeCustom}
+    \end{enumerateCustom}
+
+\section*{Goal of the Game}
+Build your character by drafting and manipulating dice to build your attributes, buy weapons and armor to outfit your hero, train to gain skills, and earn Reputation by construfting the perfect character. The player with the greatest Reputation wins!
+
+\section*{Round Overview}
+    \subsection*{Roll Phase}
+    First player draws \# players + 1 dice, rolls them, and places them on Initiative cards in descending order (Lowest value die on Initiative 1, next lowest on Initiative 2, etc)
+
+    \subsection*{Dice Phase}
+    In player order, players select an Initiative card, place dice on Character sheet, collect Gold, and take (optionally) Attribute actions.
+
+    \subsection*{Market Phase}
+    In Initiative card order (lowest to highest), players may buy a Market card. If a player doesn't want / can't buy a card they must discard a Market card and gain 2 Gold. After buying / discarding return Initiative card.
+    \begin{itemizeCustom}
+        \item No limit to number of Armor, Trait, or Skill cards a player may acquire
+        \item Player can't equip more than 2 hands worth of Weapon cards. May discard a Weapon card at any time to make room.
+        \item If a Trait is bought, immediately move tracking token as indicated if possible.
+        \item May use a purchased Skill card immediately.
+    \end{itemizeCustom}
+
+    \subsection*{Cleanup Phase}
+    \begin{enumerateCustom}
+        \item Each player discards unused Charisma tokens
+        \item Each player may refresh one exhausted Skill card
+        \item Return remaining die in Dice Pool to dice bag and discard remaining Market cards
+        \item Draw new set of Market cards. If necessary, shuffle Market discard pile
+        \item Place 1 Gold on any Initiative cards without Gold on them if they are neither the first nor last card in the row
+        \item Pass dice bag (the "first player marker") to next player
+            
+    \end{enumerateCustom}
+
+\section*{Attribute Actions}
+Attribute actions may be used to affect dice placed this round or any previous round. Only one Attribute action may be taken per Dice Phase. Dice that are moved or have face value changed do not trigger additional Attribute Actions.
+    \begin{itemizeCustom}
+        \item \textbf{Strength:} Change value of die to opposite face. E.g., 1 into 6, 2 into 5.
+        \item \textbf{Dexterity:} Exchange placement of any two dice on character sheet without changing face values.
+        \item \textbf{Constitution:} Increase or decrease value of any die by 1. Values do not loop.
+        \item \textbf{Intelligence:} Choose and die and reroll it. May keep new or original value. Return to original spot.
+        \item \textbf{Wisdom:} Move Alignment tracking token one space any cardinal direction.
+        \item \textbf{Charisma:} Take a Charisma token. These may be used to reduce item cost during Market Phase.
+    \end{itemizeCustom}
+
+\section*{Skill Cards}
+To use a Skill card, move Tracking token on Alignment card in direction indicated, then may use card ability, then exhaust card.
+\begin{itemizeCustom}
+    \item If Alignment token position can't move then Skill card can't be used
+    \item Skill cards may be used at any time unless card specifies otherwise
+    \item Exhausted skill cards may not be used
+\end{itemizeCustom}
+
+\section*{Gaining Gold}
+Gold may be gained by:
+\begin{itemizeCustom}
+    \item 2 Gold when placing Gold die on Character sheet
+    \item 2 Gold when discarding Market card
+    \item 1 Gold when placing 3rd die in Attribute row
+    \item 1 Gold when selecting Initiative card with Gold on it
+\end{itemizeCustom}
+
+\section*{End Game and Scoring}
+The Game ends at the completion of the round when players have filled every Attribute row on Character sheets. Use Class card tracking token and back of Player Aid card to tally Reputation Stars.
+
+\subsection*{Attribute Goals}
+Add up dice values in each Attribute row, adjust total for any Race Bonus or Penalty on Character sheet and Weapon cards, and compare to Class card values
+\begin{itemizeCustom}
+    \item If goal is single number it must match exactly
+    \item If goal is range, value must have value in range
+    \item If goal has $+$, value must be $\geq$ to number
+\end{itemizeCustom}
+
+\subsection*{Class Color Dice}
+Each die on Character sheet that matches Class color is worth 1 Reputation
+
+\subsection*{Alignment Card}
+Check position of Alignment tracking token and add/subtract indicated Reputation
+
+\subsection*{Backstory Card}
+If dice on Character sheet match color and position indicated on Backstory card, gain Reputation indicated on board
+
+\subsection*{Armor Cards}
+Earn Reputation for sets of Armor as indicated by cards
+
+\subsection*{Trait Cards}
+Gain Reputation indicated on trait cards
+
+\end{multicols*}
+\end{document}
