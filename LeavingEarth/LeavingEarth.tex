@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Leaving Earth Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section*{Setup}
+    \begin{enumerateCustom}
+        \item Each player takes Agency board, 4 spacecraft cards, and tokens
+        \item Draw Mission cards by game level
+            \begin{itemizeCustom}
+                \item Easy Game: 5 Easy
+                \item Medium Game: 4 Easy, 2 Medium
+                \item Hard Game: 3 Easy, 3 Medium, 2 Hard
+                \item Very Hard Game: 1 Easy, 4 Medium, 4 Hard
+            \end{itemizeCustom}
+        \item Layout Location cards per diagram (pg 9). For multi-card locations, shuffle and pick one. Put Unexplored side up on board.
+        \item Set out remaining cards by type. Shuffle Outcome deck.
+        \item Put calendar marker on 1956.
+    \end{enumerateCustom}
+
+\section*{Goal of the Game}
+Be the agency that has completed the most valuable missions at the end of 20 years.
+
+\section*{Game Round}
+Each round of gameplay represents 1 year.
+\begin{enumerateCustom}
+    \item Resolve Start-of-Year Missions
+    \item Everyone gets \$25
+    \item Take turns starting with lowest scoring Agency, then clockwise
+    \item On Earth, repair all damaged components and heal incapacitated astronauts
+    \item Check off-Earth astronaut survival
+        \begin{itemizeCustom}
+            \item Any incapacitated astronaut dies
+            \item Each agency draws Life Support outcome card per undamaged capsule in space. If check fails, capsule is damaged, or no Life Support advancement, all astronauts in capsules die.
+            \item Astronauts consume supplies. 1 supply feeds 5 astronauts in single spacecraft. Unfed astronauts die.
+        \end{itemizeCustom}
+    \item Remove 1 time token from spacecraft. When last token is removed, resolved any hazards and complete missions.
+\end{enumerateCustom}
+
+\section*{Player Turn}
+Take any number of actions in any order. At end of turn, automatic maneuvers take place.
+
+\subsection*{Research an Advancement}
+Pay \$10, take advancement card, place \# of outcome cards on top
+
+\subsection*{Buy Component}
+Purchase component for price listed. Some have required advancement and can't be bought without indicated advancement.
+
+\subsection*{(Dis)Assemble a spacecraft on Earth}
+Gather up components and group on a spacecraft card. Place spacecraft tokenon Earth. May consist of any components as long as there are enough seats for any astronauts aboard.
+
+Disassemble spacecraft on Earth by doing the above in reverse order.
+
+\subsection*{Perform maneuver}
+A spacecraft with time tokens cannot maneuver
+\begin{enumerateCustom}
+    \item Determine \[thrust\_required = spacecraft\_mass * maneuver\_difficulty\]
+    \item Discard rockets / fire ion thruster to generate thrust. Draw outcome cards as necessary.
+    \item If enough thrust generated, move spacecraft to new location. Otherwise, remains where it is.
+    \item Evaluate maneuver hazards in order listed
+\end{enumerateCustom}
+
+\subsubsection*{Ion Thrusters}
+Generate unit of thrust per year of travel. Don't discard when used. CAn only be used for maneuvers that take at least 1 year.
+
+
+\subsubsection*{Automatic Maneuvers}
+Maneuver with difficulty of exclamation mark is an Automatic maneuver. At end of turn, spacecraft automatically performs that maneuver. May deliberately perform such maneuver during turn, no thrust required.
+
+\subsubsection*{Multi-Year Maneuvers}
+Hourglass symbol represent maneuver that takes more than 1 year to complete. Generate thrust as normal, move spacecraft token to destination, then put time token per hourglass on spacecraft. When all time tokens are removed, spacecraft has arrived. Maneuver with hourglass in parentheses don't require time tokens but then can be used.
+
+\subsubsection*{Faster/Slower Maneuvers}
+Maneuvers can be completed faster by using more thrust. Double difficult to complete in half as many years, rounded up. Maneuvers of at least 1 year can be completed slower but difficulty remains the same.
+
+\subsection*{Dock spacecraft}
+Combine two spacecraft in same location with Rendezvous advancement without time tokens. Draw outcome card, put all components on one spacecraft card, and remove other spacecraft token.
+
+Separating is same in reverse but may have time tokens. If separation result sin astronauts not having a seat, cannot perform.
+
+\subsubsection*{Full Rendezvous Testing}
+Whenever you have a spacecraft that can dock and separate repeatedly you
+may declare that you are fully testing Rendezvous. Reveal outcomes and resolve. May pay to remove outcomes like normal. Failures stop testing, successes do not. If only 1 success left, remove for free.
+
+\subsection*{Survey unexplored location}
+Some maneuver hazards result in location exploration. If spacecraft survives to face such maneuver hazard, look at other side of location card. May turn face up or destroy spacecraft to not reveal.
+
+Surveying advancement allows exploration of unexplored location if probe/capsule is in location with maneuver that has an exploration hazard. May test surveying on already explored locations. May turn card face up or may not without destroying spacecraft. Time tokens prevent surveying. Suborbital flight cannot be surveyed, Solar Radiation may be surveyed.
+
+\subsection*{Collect Sample}
+Spacecraft with undamaged probe/capsule or healthy astronaut and no time tokens may collect sample from solid body (planets, moons, asteroids) locations.
+
+\subsection*{Use Astronaut Skills}
+\begin{itemizeCustom}
+    \item \textbf{Mechanics:} Repair all damaged components for 1 supply. Life Support minor failures act as a success (still cost \$5 to discard).
+    \item \textbf{Doctors:} Heal all incapacitated astronauts (other than self) for free.
+    \item \textbf{Pilot:} Landing and Rendezvous minor fails
+\end{itemizeCustom}
+
+\subsection*{Co-operate with another agency}
+You can give another agency unassembled components, money, or an entire spacecraft (replace card and token). Can share research (other agency takes one of same advancement card with same \# of outcomes as on yours).
+
+Consider selling extra payload space, separate it into another spacecraft, then give it back.
+
+\section*{Missions}
+A Mission card must be taken when its conditions are met. Take card and keep near Agency card. All other Agencies get \$10.
+\begin{itemizeCustom}
+    \item \textbf{Probe:} Probe/capsule must reach location undamaged and must not be destroyed upon reaching destination.
+    \item \textbf{Survey:} Reveal unexplored location first. Either travel there or with Surveying Advancement.
+    \item \textbf{Sample Return:} Sames can be collected from surface of any solid body. Sample must be brought back to Earth. Extraterrestrial Life is a type of Sample Return mission from location with life.
+    \item \textbf{Manned Space Flight:} Astronaut must be sent to location and back to Earth alive. Good health not required.
+    \item \textbf{Space Station:} Keep astronaut alive in Space for 1 year. No requirement to bring astronaut home.
+\end{itemizeCustom}
+If multiple agencies complete Start-of-Year mission give to player with least points.
+
+\section*{Maneuver Hazards}
+\subsection*{Solar Radiation}
+When performing maneuver look at Solar Radiation card for radiation level. For each astronaut, roll d8. Incapacitated if roll $<= radiation\_level * years\_of\_maneuver$. Radiation is calculated at start of maneuver when time tokens are added not throughout maneuver.
+
+\subsection*{Atmospheric Entry}
+Damaged capsules or capsules without head shields (Aldrin, Eagle) are destroyed along with astronauts aboard by atmospheric entry. Working capsule with heat shield draws outcome from Re-entry advancement. All other components are unaffected.
+
+\subsection*{Landing}
+Draw outcome from Landing advancement. Don't have Landing, spacecraft destroyed. (Landing maneuvers) don't require a Landing outcome draw but one may be performed instead of landing safely.
+
+\subsection*{Other Hazards}
+Other symbols require you to look at location card with relevant symbol in middle. Suborbital Flight requires an astronaut to be aboard.
+
+\section*{Misc.}
+\subsection*{Space}
+    An location that is not Earth is considered Space (including Suborbital Flight)
+
+\subsection*{Drawing an Outcome}
+When using an advancement, drawn outcome card to determine result. After resolving result, may discard. \$5 to discard any failure, \$10 for success. Otherwise, shuffle back into outcome pile. If one one outcome is left, may leave face up. May remove for free if success.
+
+Never draw multiple outcomes at once. Always resolve each fully.
+
+\subsection*{Unlisted Attributes}
+If a component doesn't have a value for an attribute it has a value of 0.
+
+\section*{End Game}
+Game ends when calendar marker goes past 1976, one agency has enough points to be unbeatable, or all missions completed.
+
+\end{multicols*}
+\end{document}
