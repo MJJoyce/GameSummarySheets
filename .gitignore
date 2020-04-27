@@ -4,5 +4,7 @@
 *.log
 *.gz
 *.swp
+*.fls
+*fdb*
 
 TexTemplate.pdf
