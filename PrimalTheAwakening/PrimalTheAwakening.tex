@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+
+% Set landscape mode and custom margins for page while including space for the footer
+\usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
+
+% Used to reduce the spacing around section headers and titles.
+% Format title headers by adjusting font size
+% Set the spacing on all sides of the title to 0
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\underline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{#1}
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\titlespacing*{\subsection}{0pt}{*0}{0pt}
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+% Reduce spacing around list items
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Set line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Create a multicolumn layout
+% Set the amount of separation between columns
+% Draw a vertical rule between the columns
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{0.1pt}
+
+% Add a frame around the content
+\usepackage{mdframed}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom footer (and header if I wanted)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Set custom headers and footers for fancyhdr
+\fancyhead{}
+\fancyfoot[C]{Primal: The Awakening Summary Sheet v1.0}
+\renewcommand{\headrulewidth}{0pt} 	% Remove horizontal rule from header
+\renewcommand{\footrulewidth}{0pt}  % Remove horizontal rule from footer
+
+% Custom frame style for mdframed
+% The negative margin is needed to fix a weird spacing that I couldn't figure out
+\mdfdefinestyle{customFrame}{%
+    outerlinewidth = 0.4pt,
+    innertopmargin = -0.3cm}
+
+\mdfdefinestyle{SummaryCard}{
+    linecolor=black,
+    outerlinewidth=2pt,
+    roundcorner=20pt,
+    innertopmargin=4pt,
+    innerbottommargin=4pt,
+    innerrightmargin=4pt,
+    innerleftmargin=4pt,
+    leftmargin = 4pt,
+    rightmargin = 4pt,
+    frametitlealignment=\center
+}
+
+% Reduce whitespace in the enumerate list environment
+\newenvironment{enumerateCustom}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+% Reduce whitespace in the itemize list environment
+\newenvironment{itemizeCustom}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\begin{document}
+
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Round Order Guide}]
+
+    \begin{enumerateCustom}
+        \item Each player may resolve one \textbf{Consume} ability.
+        \item Monster Upkeep
+            \begin{itemizeCustom}
+                \item Replace behavior card with lowest number (or all tied cards).
+                \item Gain 1 per player \textbf{struggle} tokens.
+                    \begin{itemizeCustom}
+                        \item \textit{Remember to check for \textbf{Unleash}}
+                    \end{itemizeCustom}
+            \end{itemizeCustom}
+
+        \item Player Turns: Clockwise turn order starting with \textbf{aggro} token player.
+            \begin{itemizeCustom}
+                \item Movement Phase
+                    \begin{itemizeCustom}
+                        \item May spend 1 \textbf{stamina} to move to adjacent sector.
+                            \begin{itemizeCustom}
+                                \item \textit{Remember, remove threatened status when you move.}
+                            \end{itemizeCustom}
+                        \item If don't move: take \textbf{threatened} token.
+                    \end{itemizeCustom}
+                \item Action Phase: Perform actions in any order and count.
+                    \begin{itemizeCustom}
+                        \item Play action card.
+                            \begin{itemizeCustom}
+                                \item Play up to 5 action cards into your \textbf {sequence}. Resolve card ability text and then specific card color effect.
+                                    \begin{itemizeCustom}
+                                        \item Take \textbf{aggro} token immediately when played, if relevant.
+                                        \item Player chooses order to resolve simultaneous triggered abilities on played cards.
+                                    \end{itemizeCustom}
+                            \end{itemizeCustom}
+                        \item Activate \textbf{Action} ability
+                        \item Revive (limit once per turn)
+
+                        \textbf{End of Phase:} Gain \textbf{stamina} token if $\ge 2$ cards in hand.
+                    \end{itemizeCustom}
+                \item Attrition Phase
+                    \begin{itemizeCustom}
+                        \item Reveal 1 attrition card (2, pick highest if \textbf{threatened})
+                        \item Take \textbf{attrition damage} if number of defense cards in sequence $<$ value. See damage value on bottom-right of stance card.
+                    \end{itemizeCustom}
+                \item End of Turn
+                    \begin{itemizeCustom}
+                        \item Discard sequence in order played
+                        \item Draw / discard to hand limit (default 5)
+                            \begin{itemizeCustom}
+                                \item When deck is empty, suffer damage equal to weapon level and then reshuffle.
+                            \end{itemizeCustom}
+                        \item Rotate monster to face \textbf{aggro} player.
+                    \end{itemizeCustom}
+            \end{itemizeCustom}
+
+        \item End of Round
+            \begin{itemizeCustom}
+                \item Resolve "at the end of the round" effects
+                \item Advance round marker.
+            \end{itemizeCustom}
+    \end{enumerateCustom}
+\end{mdframed}
+
+\pagebreak
+
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Mirah)}]
+    Assist
+    Blind
+    Focused Mastery
+    Recycle
+    Stealth
+    Volley
+    Weapon Icon
+\end{mdframed}
+
+\pagebreak
+
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Dareon)}]
+    Assist
+    Berserker
+    Finisher
+    Focused Mastery
+    Resilience
+    Vulnerable
+    Weapon Icon
+\end{mdframed}
+
+\pagebreak
+
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Thoreg)}]
+    Assist
+    Confuse
+    Focused Mastery
+    Recycle
+    Stealth
+    Strain
+    Stun
+    Weapon Icon
+\end{mdframed}
+
+\pagebreak
+
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Ljonar)}]
+    Assist
+    Confuse
+    Focused Mastery
+    Resilience
+    Sustained damage (Relevant or just weird AF wording?)
+    Taunt
+    Vulnerable
+    Weapon Icon
+\end{mdframed}
+
+\pagebreak
+
+\begin{mdframed}[style = customFrame]
+\begin{multicols*}{2}
+
+\section*{Setup}
+\section*{Goal of the Game}
+\section*{Player Turn}
+\section*{End Game}
+
+\end{multicols*}
+\end{mdframed}
+\end{document}
