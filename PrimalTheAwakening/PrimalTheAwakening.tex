@@ -3,6 +3,8 @@
 % Set landscape mode and custom margins for page while including space for the footer
 \usepackage[includefoot, margin={0.5cm, 0.5cm}, landscape]{geometry}
 
+\usepackage{graphicx}
+
 % Used to reduce the spacing around section headers and titles.
 % Format title headers by adjusting font size
 % Set the spacing on all sides of the title to 0
@@ -89,7 +91,7 @@
         \item Monster Upkeep
             \begin{itemizeCustom}
                 \item Replace behavior card with lowest number (or all tied cards).
-                \item Gain 1 per player \textbf{struggle} tokens.
+                \item Gain 1 per player (1\includegraphics[scale=0.40]{images/per_player.png}) \textbf{struggle} tokens.
                     \begin{itemizeCustom}
                         \item \textit{Remember to check for \textbf{Unleash}}
                     \end{itemizeCustom}
@@ -147,51 +149,58 @@
 \pagebreak
 
 \begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Mirah)}]
-    Assist
-    Blind
-    Focused Mastery
-    Recycle
-    Stealth
-    Volley
-    Weapon Icon
+    \begin{description}
+        \item[Assist] During another player’s turn, either before or after any action, you may discard an Assist card. The active player draws 1. Limit once per turn.
+        \item[Blind] When you inflict Blind, choose a peril card in play. That peril is considered to be blank until the start of your next turn.
+        \item[Focused Mastery] \includegraphics[scale=0.30]{images/mastery_icon.png} If card ability text begins with this icon, it means you can only resolve the ability if your mastery card is focused.
+        \item[Recycle] When you are instructed to Recycle X, you may discard X cards of your choice from your hand to draw X.
+        \item[Stealth] When you play an action card with the keyword Stealth in your sequence, that card do not trigger reaction icons containing color or card type icons.
+        \item[Volley] You may discard X cards from the top of your deck and deal damage to the monster equal to your weapon level for each offensive card (red / blue) discarded this way.
+        \item[Weapon Icon] \includegraphics[scale=0.20]{images/weapon_level.png} These are the class icons that represent the different hunter classes. They refer to your weapon level (top right corner of weapon card).
+    \end{description}
 \end{mdframed}
 
 \pagebreak
 
 \begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Dareon)}]
-    Assist
-    Berserker
-    Finisher
-    Focused Mastery
-    Resilience
-    Vulnerable
-    Weapon Icon
+    \begin{description}
+        \item[Assist] During another player’s turn, either before or after any action, you may discard an Assist card. The active player draws 1. Limit once per turn.
+        \item[Berserker] This is a keyword ability. When you play a card with the keyword Berserker in your sequence, you enter the berserker state and remain in that state until the end of your turn. While in the berserker state, draw 1 each time you play an attack card in your sequence.
+        \item[Finisher] After you play a card with the keyword Finisher in your sequence, your Action phase ends
+        \item[Focused Mastery] \includegraphics[scale=0.30]{images/mastery_icon.png} If card ability text begins with this icon, it means you can only resolve the ability if your mastery card is focused.
+        \item[Resilience] After you suffer , you may reveal a card with the keyword Resilience from your hand to draw 1. Limit once per Resilience card per round.
+        \item[Vulnerable] Inflict Vulnerable on the monster. While the monster is vulnerable, you may discard the vulnerable token to double a single source of damage. Vulnerability is removed at the end of the round.
+        \item[Weapon Icon] \includegraphics[scale=0.20]{images/weapon_level.png} These are the class icons that represent the different hunter classes. They refer to your weapon level (top right corner of weapon card).
+    \end{description}
 \end{mdframed}
 
 \pagebreak
 
 \begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Thoreg)}]
-    Assist
-    Confuse
-    Focused Mastery
-    Recycle
-    Stealth
-    Strain
-    Stun
-    Weapon Icon
+    \begin{description}
+        \item[Assist] During another player’s turn, either before or after any action, you may discard an Assist card. The active player draws 1. Limit once per turn.
+        \item[Confuse] Give monster the confused token and turn monster to a sector of your choice. When the monster would activate a boost effect, discard the confused token instead and cancel that effect (still pay the boost cost). Remove at beginning of next round.
+        \item[Focused Mastery] \includegraphics[scale=0.30]{images/mastery_icon.png} If card ability text begins with this icon, it means you can only resolve the ability if your mastery card is focused.
+        \item[Recycle] When you are instructed to Recycle X, you may discard X cards of your choice from your hand to draw X.
+        \item[Stealth] When you play an action card with the keyword Stealth in your sequence, that card do not trigger reaction icons containing color or card type icons.
+        \item[Strain] Then the next time you refill your hand, draw one card fewer for each strain you have.
+        \item[Stun] When you stun the monster, place stun token on an active behavior card. That card cannot be triggered this round. Then choose a player. They reveal up to two attack cards from their hand and deal weapon damage per revealed card. Remove after resolving "end of round" effects.
+        \item[Weapon Icon] \includegraphics[scale=0.20]{images/weapon_level.png} These are the class icons that represent the different hunter classes. They refer to your weapon level (top right corner of weapon card).
+    \end{description}
 \end{mdframed}
 
 \pagebreak
 
 \begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Keywords (Ljonar)}]
-    Assist
-    Confuse
-    Focused Mastery
-    Resilience
-    Sustained damage (Relevant or just weird AF wording?)
-    Taunt
-    Vulnerable
-    Weapon Icon
+    \begin{description}
+        \item[Assist] During another player’s turn, either before or after any action, you may discard an Assist card. The active player draws 1. Limit once per turn.
+        \item[Confuse] Give monster the confused token and turn monster to a sector of your choice. When the monster would activate a boost effect, discard the confused token instead and cancel that effect (still pay the boost cost). Remove at beginning of next round.
+        \item[Focused Mastery] \includegraphics[scale=0.30]{images/mastery_icon.png} If card ability text begins with this icon, it means you can only resolve the ability if your mastery card is focused.
+        \item[Resilience] After you suffer \includegraphics[scale=0.30]{images/monster_damage.png}, you may reveal a card with the keyword Resilience from your hand to draw 1. Limit once per Resilience card per round.
+        \item[Taunt] During another player’s turn, discard a Taunt card. Active player draws 1, you take the aggro token, and turn monster to your sector. Limit once per turn.
+        \item[Vulnerable] Inflict Vulnerable on the monster. While the monster is vulnerable, you may discard the vulnerable token to double a single source of damage. Vulnerability is removed at the end of the round.
+        \item[Weapon Icon] \includegraphics[scale=0.20]{images/weapon_level.png} These are the class icons that represent the different hunter classes. They refer to your weapon level (top right corner of weapon card).
+    \end{description}
 \end{mdframed}
 
 \pagebreak
