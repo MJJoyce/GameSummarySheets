@@ -93,7 +93,7 @@
                 \item Replace behavior card with lowest number (or all tied cards).
                 \item Gain 1 per player (1\includegraphics[scale=0.40]{images/per_player.png}) \textbf{struggle} tokens.
                     \begin{itemizeCustom}
-                        \item \textit{Remember to check for \textbf{Unleash}}
+                        \item If $\ge$ 3\includegraphics[scale=0.40]{images/per_player.png}, \textbf{Unleash}
                     \end{itemizeCustom}
             \end{itemizeCustom}
 
@@ -205,14 +205,31 @@
 
 \pagebreak
 
-\begin{mdframed}[style = customFrame]
-\begin{multicols*}{2}
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Triggers and Resolutions}]
+%\begin{multicols*}{2}
 
-\section*{Setup}
-\section*{Goal of the Game}
-\section*{Player Turn}
-\section*{End Game}
+%\section*{Important Triggers and Resolutions}
 
-\end{multicols*}
+    \begin{description}
+        \item[Empty Player Deck] Suffer damage equal to your weapon level. Immediately reshuffle your deck.
+        \item[Empty Behavior Deck] Immediately reshuffle discard pile. Monster gains 1 struggle.
+        \item[Unleashed] If struggle $\ge$ 3\includegraphics[scale=0.40]{images/per_player.png}:
+            \begin{enumerateCustom}
+                \item All players suffer \includegraphics[scale=0.30]{images/monster_damage.png}
+                \item Remove all but 1\includegraphics[scale=0.40]{images/per_player.png} struggle tokens.
+            \end{enumerateCustom}
+        \item[Card Resolution Timing] Resolve simultaneous triggers with the following priority. If multiple cards have the same priority, the players decide the resolution order.
+            \begin{enumerateCustom}
+                \item Stance Cards
+                \item Peril Cards
+                \item Behavior Cards
+                \item Other Cards
+            \end{enumerateCustom}
+    \end{description}
+%\section*{Goal of the Game}
+%\section*{Player Turn}
+%\section*{End Game}
+
+%\end{multicols*}
 \end{mdframed}
 \end{document}
