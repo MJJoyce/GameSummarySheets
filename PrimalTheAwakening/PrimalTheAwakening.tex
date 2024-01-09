@@ -84,7 +84,7 @@
 
 \begin{document}
 
-\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Round Order Guide}]
+\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=40em, frametitle={Round Order Guide}]
 
     \begin{enumerateCustom}
         \item Each player may resolve one \textbf{Consume} ability.
@@ -119,13 +119,16 @@
                             \end{itemizeCustom}
                         \item Activate \textbf{Action} ability
                         \item Revive (limit once per turn)
+                            \begin{itemizeCustom}
+                                \item If in sector with KO'd player, spend 2 stamina. Flip red KO token to black side or discard black KO token and player rises.
+                            \end{itemizeCustom}
 
                         \textbf{End of Phase:} Gain \textbf{stamina} token if $\ge 2$ cards in hand.
                     \end{itemizeCustom}
                 \item Attrition Phase
                     \begin{itemizeCustom}
                         \item Reveal 1 attrition card (2, pick highest if \textbf{threatened})
-                        \item Take \textbf{attrition damage} if number of defense cards in sequence $<$ value. See damage value on bottom-right of stance card.
+                        \item Take \textbf{attrition damage} (\includegraphics[scale=0.30]{images/monster_damage.png}) if number of defense cards in sequence $<$ value. See damage value on bottom-right of stance card.
                     \end{itemizeCustom}
                 \item End of Turn
                     \begin{itemizeCustom}
@@ -205,31 +208,72 @@
 
 \pagebreak
 
-\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=35em, frametitle={Important Triggers and Resolutions}]
-%\begin{multicols*}{2}
+%\begin{mdframed}[style=SummaryCard, align=center, userdefinedwidth=60em, frametitle={Important Triggers and Resolutions}]
+\begin{multicols*}{2}
 
 %\section*{Important Triggers and Resolutions}
+\subsection*{Behavior Card Resolution}
+When the effects of any event or card trigger a behavior card, completely resolve that effect before resolving the behavior card. When multiple behaviors are triggered (excluding rampage), reveal and resolve those cards fully, one at a time.  
+    \begin{enumerateCustom}
+        \item Apply behavior card effect and boost effect (if any).
+        \item Resolve any rampage cards in play.
+        \item Discard behavior card(s) and refill behavior slot.
+    \end{enumerateCustom}
 
-    \begin{description}
-        \item[Empty Player Deck] Suffer damage equal to your weapon level. Immediately reshuffle your deck.
-        \item[Empty Behavior Deck] Immediately reshuffle discard pile. Monster gains 1 struggle.
-        \item[Unleash] If struggle $\ge$ 3\includegraphics[scale=0.40]{images/per_player.png}:
-            \begin{enumerateCustom}
-                \item All players suffer \includegraphics[scale=0.30]{images/monster_damage.png}
-                \item Remove all but 1\includegraphics[scale=0.40]{images/per_player.png} struggle tokens.
-            \end{enumerateCustom}
-        \item[Card Resolution Timing] Resolve simultaneous triggers with the following priority. If multiple cards have the same priority, the players decide the resolution order.
-            \begin{enumerateCustom}
-                \item Stance Cards
-                \item Peril Cards
-                \item Behavior Cards
-                \item Other Cards
-            \end{enumerateCustom}
-    \end{description}
+\subsection*{Card Resolution Timing}
+Resolve simultaneous triggers with the following priority. If multiple cards have the same priority, the players decide the resolution order.
+    \begin{enumerateCustom}
+        \item Stance Cards
+        \item Peril Cards
+        \item Behavior Cards
+        \item Other Cards
+    \end{enumerateCustom}
+
+\subsection*{Empty Player Deck}
+Suffer damage equal to your weapon level (a.k.a., \textbf{fatigue damage}). Immediately reshuffle your deck.
+
+\subsection*{Empty Behavior Deck}
+Immediately reshuffle discard pile. Monster gains 1 struggle (a.k.a., \textbf{escalation}).
+
+\subsection*{Knocked Out}
+When a players total sustained damage $\ge$ total health (sum of equipped armor and helm HP) they are KO'd:
+    \begin{enumerateCustom}
+        \item If you're the active player, immediately end your turn (skipping all other steps).
+        \item Remove all damage tokens from hunter board.
+        \item Pass aggro token to first player (or next player in player order if they're KO'd).
+        \item Discard all cards in hand and sequence.
+        \item Place \textbf{deplete token} on either armor or helm. Must not be currently depleted. Depleted equipment does not contribute towards your HP.
+        \item Add a \textbf{Would card} to discard pile. Shuffle deck.
+        \item Lay hunter miniature on side to indicate KO.
+        \item Take KO token, place on hunter board red side up.
+        \item Turn monster to aggro player.
+    \end{enumerateCustom}
+
+    When it is your turn while knocked out, flip KO token to black side. If already on black side, the hunter \textbf{rises}:
+    \begin{enumerateCustom}
+        \item Discard KO token.
+        \item Draw to hand size.
+        \item Stand up miniature on board.
+        \item Your turn ends.
+    \end{enumerateCustom}
+
+\subsection*{Unleash}
+If struggle $\ge$ 3\includegraphics[scale=0.40]{images/per_player.png}:
+    \begin{enumerateCustom}
+        \item All players suffer \includegraphics[scale=0.30]{images/monster_damage.png}
+        \item Remove all but 1\includegraphics[scale=0.40]{images/per_player.png} struggle tokens.
+    \end{enumerateCustom}
+
+\subsection*{Winning and Losing}
+Scenarios end in the following ways:
+    \begin{itemizeCustom}
+        \item Players win immediately if they reduce the monsters health to 0
+        \item Players lose if the end of round 10 is reached or when all players are simultaneously KO'd.
+    \end{itemizeCustom}
 %\section*{Goal of the Game}
 %\section*{Player Turn}
 %\section*{End Game}
 
-%\end{multicols*}
-\end{mdframed}
+\end{multicols*}
+%\end{mdframed}
 \end{document}
